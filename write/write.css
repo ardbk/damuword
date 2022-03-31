@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.body {
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    color: #1a1a1d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+.w-button {
+    display: inline-block;
+    padding: 9px 15px;
+    background-color: #3898ec;
+    color: white;
+    border: 0;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    border-radius: 0;
+}
+.w-inline-block {
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* ------------ MIDDLE BEGINNING ------------ */
+.middle {
+    width: 640px;
+    margin: auto;
+    min-height: calc(100vh - 310px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* --------------- MIDDLE END --------------- */
+.setDiv {
+    background-color: white;
+    padding: 16px;
+    margin-top: 20px;
+    border-radius: 10px;
+    /* background-color: #f5d45d; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#setNameInput {
+    border: none;
+    margin: 10px;
+    font-size: 18px;
+    background-color: inherit;
+    border-bottom: 1px solid;
+    padding: 5px;
+    /* font-weight: bold; */
+    outline: none;
+    text-align: center;
+}
+div.wordArea {
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px 0 20px 0;
+}
+
+div.firstLine {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+input.wordName {
+    font-family: "Titillium Web", sans-serif;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    width: 180px;
+    text-align: center;
+    margin-top: -3px;
+    margin-left: 5px;
+}
+
+span.counter {
+    font-family: monospace;
+    opacity: 0.3;
+    margin: 0px 5px 0px 14px;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: default;
+}
+
+button.deleteWord {
+    background: url("images/removeWordButton.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #1a1a1d;
+    cursor: pointer;
+    margin-left: 5px;
+}
+button.deleteWord:hover {
+    background: url("images/removeWordButton2.png");
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    border-radius: 4.4px;
+}
+.checkBoxField {
+    margin-top: 9px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkBox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.checkBox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.checkBox + label::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 6px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+.checkBox:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #2f80ed;
+    box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.3);
+}
+.checkBox:checked + label::before {
+    border-color: #2f80ed;
+    background-image: url("images/checkbox22.png");
+    background-size: 14px 14px;
+}
+
+div.defExpArea {
+    background-color: #f3d250;
+    padding: 10px;
+    padding-left: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
+.partOfSpeech {
+    font-size: 18px;
+    margin-left: 7px;
+}
+button.addDefExp {
+    background: url("images/plussign.png");
+    background-size: 17px 17px;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 17px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #1a1a1d;
+    cursor: pointer;
+    margin-left: 5px;
+}
+button.addDefExp:hover {
+    background: url("images/plussign2.png");
+    background-size: 17px 17px;
+    width: 17px;
+    height: 17px;
+    background-color: #008000;
+    border-radius: 4.4px;
+}
+
+div.defexp {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+textarea {
+    font-size: 16px;
+    width: 45%;
+    outline: none;
+    resize: none;
+    border-radius: 4px;
+    margin: 5px;
+    font-family: "Titillium Web", sans-serif;
+    border: transparent;
+    padding: 5px;
+    padding-left: 8px;
+}
+button.defexpDelete {
+    background: url("images/deleteBlack.jpg");
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #1a1a1d;
+    cursor: pointer;
+    margin: auto;
+}
+button.defexpDelete:hover {
+    background: url("images/deleteWhite.jpg");
+    background-size: 18px 18px;
+    width: 18px;
+    height: 18px;
+    background-color: crimson;
+    border-radius: 4.4px;
+}
+
+div.NewWord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.NewWord:hover {
+    color: #f3d250;
+}
+
+.addNewWord {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 18px;
+    text-decoration: underline;
+    /* font-family: 'Titillium Web', sans-serif; */
+}
+
+.buttonsField2 {
+    margin: 5px auto 30px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: white;
+    border-radius: 8px;
+    width: 300px;
+    height: 50px;
+}
+.mainButton {
+    /* font-family: 'Titillium Web', sans-serif; */
+    font-size: 18px;
+    letter-spacing: 1px;
+    padding-top: 5px;
+    text-align: center;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px 8px;
+    height: 40px;
+}
+.mainButton:hover {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    color: #5e5e5e;
+}
+.buttonLine {
+    padding-top: 5px;
+    height: 14px;
+    width: 4px;
+}
+
+/* ------------------------ LOADER ------------------------ */
+.loader-parent {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3898ec;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* ------------------------ LOADER ------------------------ */

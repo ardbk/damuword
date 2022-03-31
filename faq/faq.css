@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.w-inline-block {
+    max-width: 100%;
+    display: inline-block;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #f1f1f1;
+    overflow: scroll;
+}
+.middle {
+    width: 700px;
+    margin: auto;
+    min-height: calc(100vh - 310px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+span.questionSpan {
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+div.instructions {
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+}
+
+.incstructionImage {
+    margin: 10px auto 20px auto;
+    height: 350px;
+    border-radius: 7px;
+    width: auto;
+}
+
+.collapsible {
+    cursor: pointer;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    font-family: Poppins, sans-serif;
+    background-color: #faeec1;
+    font-weight: 600;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #f5d45d;
+}
+
+.content {
+    padding: 5px 10px 0 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    font-size: 17px;
+}
+/* .tableLink {
+  color: #f5d45d;
+} */
+
+/* .tableOfC {
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+} */

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/x-icon" href="https://firebasestorage.googleapis.com/v0/b/tenwords-ec7cd.appspot.com/o/admin%2Ftabicon.ico?alt=media&token=b946d1a9-8147-4d59-a64a-29eb44c68b1d" />
+        <link href="faq.css" rel="stylesheet" type="text/css" />
+        <link href="../menu.css" rel="stylesheet" type="text/css" />
+        <link href="../footer.css" rel="stylesheet" type="text/css" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet" />
+        <title>TenWords</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            WebFont.load({
+                google: {
+                    families: ["Poppins:regular,600,700"],
+                },
+            });
+        </script>
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menu-left">
+                <a class="menu-elements menu-heading w-inline-block">
+                    <h1 class="menu-heading-1">TEN</h1>
+                    <h1 class="menu-heading-2">WORDS</h1>
+                    <h1 class="menu-heading-1">.</h1>
+                </a>
+                <a href="https://tenwords.kz/" class="menu-elements w-inline-block">
+                    <div class="menu-text-2">Home</div>
+                </a>
+                <a href="https://tenwords.kz/articles/" class="menu-elements w-inline-block">
+                    <div class="menu-text-2">Articles</div>
+                </a>
+                <a href="https://tenwords.kz/shop/" class="menu-elements w-inline-block">
+                    <div class="menu-text-2">Shop</div>
+                </a>
+                <a href="https://tenwords.kz/faq/" class="menu-elements w-inline-block">
+                    <div class="menu-text-1">FAQ</div>
+                </a>
+            </div>
+            <div class="menu-right">
+                <a class="menu-elements menu-account w-inline-block" id="account" onclick="openPage('account')"></a>
+                <a class="menu-elements menu-signup w-button" id="login" onclick="openPage('login')">Login</a>
+                <a class="menu-elements menu-signup w-button" id="signup" onclick="openPage('signup')">Sign Up</a>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="instructions">
+                <!-- <div class="tableOfC">
+        <span style="font-weight: 600;"> Table of Contents </span>
+        <ul>
+          <li><a class="tableLink" href="#print1"> Without duplex printing </a></li>
+          <li><a class="tableLink" href="#print2"> With duplex printing </a></li>
+        </ul>
+        </div> -->
+                <button type="button" class="collapsible">
+                    Q: How to print when your printer does not support duplex printing?
+                </button>
+                <div class="content">
+                    <p>
+                        1. Make sure your printer is connected. You can see the name of the currently selected printer near the top of the "Print" window.
+                    </p>
+                    <img src="images/Instruction_1.png" class="incstructionImage" />
+                    <p>
+                        2. Place papers in the printer. Align the edges of the paper. If the paper is curies, flatten it. Move the stack of paper to the left and forward to the end. Make sure that your small mark is located on the left top
+                        and that it is faced up. Do not change the order of the papers.
+                    </p>
+                    <img src="images/Instruction_2.png" class="incstructionImage" />
+                    <p>
+                        3. Make a small pencil mark on the top paper. It should be on the top paper's face-up and top-left side, near the short edge that faces the printer.
+                    </p>
+                    <img src="images/Instruction_1.3.png" class="incstructionImage" />
+                    <p>
+                        4. Print the front pages. You need to write range from 1 to the middle.
+                    </p>
+                    <img src="images/Instruction_1.4.png" class="incstructionImage" />
+                    <p>
+                        5. Place the printed pages back in the printer so that your small mark is located on the right top and that it is faced down. Align the edges of the paper and move the stack of paper to the left and forward to the
+                        end.
+                    </p>
+                    <img src="images/Instruction_1.5.png" class="incstructionImage" />
+                    <p>
+                        6. Print back pages. You need to write range from the middle to the end.
+                    </p>
+                    <img src="images/Instruction_1.6.png" class="incstructionImage" />
+                </div>
+                <button type="button" class="collapsible">
+                    Q: How to print when your printer supports duplex printing?
+                </button>
+                <div class="content" ?>
+                    <p>
+                        1. Make sure your printer is connected. You can see the name of the currently selected printer near the top of the "Print" window.
+                    </p>
+                    <img src="images/Instruction_1.png" class="incstructionImage" />
+                    <p>
+                        2. Place papers in the printer. Align the edges of the paper. If the paper is curies, flatten it. Move the stack of paper to the left and forward to the end.
+                    </p>
+                    <img src="images/Instruction_2.png" class="incstructionImage" />
+                    <p>
+                        3. Print all pages. Follow the printer's instructions. You need to print pages from 1 to the end.
+                    </p>
+                    <img src="images/Instruction_2.3.png" class="incstructionImage" />
+                </div>
+            </div>
+        </div>
+        <div class="footer wf-section">
+            <div class="footer-element">
+                <a href="#" class="footer-link w-inline-block">
+                    <div>Web Store</div>
+                </a>
+                <a href="#" class="footer-link w-inline-block">
+                    <div>Google Privacy Policy</div>
+                </a>
+                <a href="#" class="footer-link w-inline-block">
+                    <div>Google Cookie Law</div>
+                </a>
+            </div>
+            <div class="footer-element">
+                <div class="text-block">
+                    If you think that we violate someone&#x27;s right, please send an email to us.
+                    <br />
+                    If you have any suggestions to improve our website or if you need any help, do not hesitate to send an email to us.
+                    <br />
+                    <a href="mailto:info@tenwords.kz" class="link">info@tenwords.kz</a>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+        <script type="text/JavaScript" src="/menu.js"></script>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
