@@ -1,5 +1,3 @@
 # tenwords
 
-hello world
-
-soemthing
+Aidyn123
