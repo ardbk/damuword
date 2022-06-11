@@ -72,13 +72,15 @@ function register(){
    auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
       var user = userCredential.user;
 
-      db.collection("tenwords").doc(user.uid).set({
-         quote: "Your future depends on what you do today."
-      });
       user.updateProfile({
          displayName: document.getElementById("userNameReg").value
       }).then(() => {
-         window.open('https://tenwords.kz/account', '_self');
+         db.collection("tenwords").doc(user.uid).set({
+            quote: "Your future depends on what you do today."
+         }).then(() => {
+            //window.open('https://tenwords.kz/account', '_self');
+         });
+         
       });
    }).catch((error) => {
       var errorCode = error.code;
