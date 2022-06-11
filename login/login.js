@@ -44,6 +44,7 @@ function update(x){
 document.getElementById('login').addEventListener('click', login);
 
 function login(){
+   startLoader();
    unsubscribe();
    localStorage.clear();
    sessionStorage.clear();
@@ -54,6 +55,7 @@ function login(){
     }).catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
+        stopLoader();
         alert(errorCode + ' -- ' + errorMessage + '\r\n Please, contact us if you have questions!');
     });
 }
@@ -61,6 +63,7 @@ function login(){
 document.getElementById('register').addEventListener('click', register);
 
 function register(){
+   startLoader();
    unsubscribe();
    localStorage.clear();
    sessionStorage.clear();
@@ -80,6 +83,7 @@ function register(){
    }).catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
+      stopLoader();
       alert(errorCode + ' -- ' + errorMessage + '\r\n Please, contact us if you have questions!');
    });
 }
@@ -102,3 +106,15 @@ function reset(){
       alert(errorCode + ' -- ' + errorMessage + '\nPlease, contact us if you have questions!');
    });
 }
+
+function startLoader(){
+   document.getElementById('body').style.filter = 'blur(15px)';
+   document.getElementById('body').style.pointerEvents = "none";
+   document.getElementById('loader').style.display = 'block';
+}
+
+function stopLoader(){
+   document.getElementById('body').style.filter = 'blur(0px)';
+   document.getElementById('body').style.pointerEvents = "auto";
+   document.getElementById('loader').style.display = 'none';
+} 

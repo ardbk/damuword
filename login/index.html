@@ -22,37 +22,42 @@
         </script>
     </head>
     <body>
-        <div class="textIcon">
-            <span class="header-heading-1">TEN</span>
-            <span class="header-heading-2">WORDS</span>
-            <span class="header-heading-1">.</span>
+        <div class="loader" id='loader'>
+            Loading...
         </div>
-        <div class="signInUp">
-            <button class="button" id="loginButton" onclick="update(1)">Login</button>
-            <img src="images/line.png" class="buttonLine" />
-            <button class="button" id="signUpButton" onclick="update(2)">Sign Up</button>
-        </div>
-        <div class="accountInfo" id="signIn">
-            <span class="accountText">Email address </span>
-            <input type="email" placeholder="Enter email" id="userEmailLog" />
-            <span class="accountText"> Password </span>
-            <input type="password" placeholder="Enter password" id="userPassLog" />
-            <a class="forgotPass" onclick="forgetPass()"> Forgot your password? </a>
-            <button type="submit" class="signButton" id="login">Login</button>
-        </div>
-        <div class="accountInfo2" id="signUp">
-            <span class="accountText">Email address </span>
-            <input type="email" placeholder="Enter email" id="userEmailReg" />
-            <span class="accountText">Username </span>
-            <input type="text" placeholder="Enter username" id="userNameReg" />
-            <span class="accountText"> Password </span>
-            <input type="password" placeholder="Enter password" id="userPassReg" />
-            <button type="submit" class="signButton" id="register">Register</button>
-        </div>
-        <div class="accountInfo3" id="reset">
-            <span class="accountText">Email address </span>
-            <input type="email" placeholder="Enter email" id="userEmailRes" />
-            <button type="submit" class="signButton" id="reset">Confirm</button>
+        <div id='background'>
+            <div class="textIcon">
+                <span class="header-heading-1">TEN</span>
+                <span class="header-heading-2">WORDS</span>
+                <span class="header-heading-1">.</span>
+            </div>
+            <div class="signInUp">
+                <button class="button" id="loginButton" onclick="update(1)">Login</button>
+                <img src="images/line.png" class="buttonLine" />
+                <button class="button" id="signUpButton" onclick="update(2)">Sign Up</button>
+            </div>
+            <div class="accountInfo" id="signIn">
+                <span class="accountText">Email address </span>
+                <input type="email" placeholder="Enter email" id="userEmailLog" />
+                <span class="accountText"> Password </span>
+                <input type="password" placeholder="Enter password" id="userPassLog" />
+                <a class="forgotPass" onclick="forgetPass()"> Forgot your password? </a>
+                <button type="submit" class="signButton" id="login">Login</button>
+            </div>
+            <div class="accountInfo2" id="signUp">
+                <span class="accountText">Email address </span>
+                <input type="email" placeholder="Enter email" id="userEmailReg" />
+                <span class="accountText">Username </span>
+                <input type="text" placeholder="Enter username" id="userNameReg" />
+                <span class="accountText"> Password </span>
+                <input type="password" placeholder="Enter password" id="userPassReg" />
+                <button type="submit" class="signButton" id="register">Register</button>
+            </div>
+            <div class="accountInfo3" id="reset">
+                <span class="accountText">Email address </span>
+                <input type="email" placeholder="Enter email" id="userEmailRes" />
+                <button type="submit" class="signButton" id="reset">Confirm</button>
+            </div>
         </div>
     </body>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>

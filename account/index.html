@@ -48,17 +48,17 @@
       <div class="body">
          <div class="profileBox d-flex flex-column justify-content-center">
             <div class="profileBox-1">
-               <img src="account.png" class="profileImage"/>
+               <img src="account.png" class="profileImage" id="userImage"/>
             </div>
             <div class="profileBox-2">
                <p class="profileInfo" id="userName" style="font-weight: bold;">Your name</p>
                <p class="profileInfo" id="userEmail">userEmail@gmail.com</p>
             </div>
             <div id="demo" class="profileBox-3 collapse show">
-               <blockquote class="profileQuote" id="userQuote"> Something useful Something useful Something useful</blockquote>
+               <blockquote class="profileQuote" id="userQuote"> If you see this, it means either something went wrong or the site is still loading.</blockquote>
                <div class="profileButton d-flex flex-column justify-content-center align-items-center">
                   <button onclick="openSettings()" class="profileButton-inner">Settings</button>
-                  <button onclick="createSet()" class="profileButton-inner">Sign out</button>
+                  <button onclick="signOut()" class="profileButton-inner">Sign out</button>
                </div>
             </div>
             <p class="collapse-button">
@@ -148,8 +148,8 @@
    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-   <script type="text/JavaScript" src="menu.js"></script>
-   <script type="text/JavaScript" src="main.js"></script>
+   <script type="text/JavaScript" src="/menu.js"></script>
+   <script type="text/JavaScript" src="/main.js"></script>
    <script type="text/JavaScript" src="set.js"></script>
    <script type="text/JavaScript" src="account.js"></script>
 </html>

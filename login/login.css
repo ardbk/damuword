@@ -159,3 +159,22 @@ input {
     text-decoration: underline;
     color: #f5d45d;
 }
+
+
+/* -------------------- LOADER -------------------- */
+.loader {
+    position: fixed;
+    z-index: 1;
+    margin: 40vh 45vw;
+    width: 140px;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-bottom: 10px;
+    background:linear-gradient(currentColor 0 0) bottom left/0% 3px no-repeat;
+    animation:c2 1s linear infinite;
+    display: none;
+  }
+ 
+  @keyframes c2 {to{background-size: 100% 3px}}
+  /* -------------------- LOADER -------------------- */
