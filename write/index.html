@@ -56,47 +56,7 @@
             <label for="setNameInput" style="font-weight: bold;"> Set Name </label>
             <input id="setNameInput" onchange="changeNameOfSet()" />
         </div>
-        <div class=" container-fluid d-flex flex-column align-items-center word-div">
-            <div class="word-disc container-fluid">
-                    <span name="order">1. Enter the word: </span>
-                    <span class="input-mobile">
-                        <input type="text" id="QUJC34dWtDVkHx0oqxBI" name="words" oninput="saveWord(event)" class="wordName" maxlength="15">
-                        <button class="c-button delete-word delete-word-mobile"></button>
-                    </span>
-                    <span title="Number of lines used in the card" id="QUJC34dWtDVkHx0oqxBI_counter" class="counter" style="color: black;">1/16 lines</span>
-                    <button class="c-button delete-word delete-word-desktop mx-1"></button>
-            </div>
-            <div class="checkbox-field d-flex justify-content-sm-between flex-wrap justify-content-evenly">
-                <span>
-                    <input type="checkbox" class="checkBox" id="checkbox1">
-                    <label for="checkbox1">noun</label>
-                </span>
-                <span><input type="checkbox" class="checkBox" id="checkbox2">
-                <label for="checkbox2">verb</label></span>
-                <span><input type="checkbox" class="checkBox" id="checkbox3">
-                <label for="checkbox3">adjective</label></span>
-                <span><input type="checkbox" class="checkBox" id="checkbox4">
-                <label for="checkbox4">adverb</label></span>
-                <span><input type="checkbox" class="checkBox" id="checkbox5">
-                <label for="checkbox5">others</label></span>
-            </div>
-            <div class="def-exp">
-                <div class="def-span">
-                    <span style="margin: 0 5px; font-size: 16px;"> Part of speech </span>
-                    <button class="c-button add-def-btn"></button>
-                </div>
-                <div class="def-exp-part d-flex align-items-center justify-content-center">
-                    <textarea placeholder="definition"></textarea>
-                    <textarea placeholder="example"></textarea>
-                    <button class="c-button delete-def-btn"></button>
-                </div>
-                <div class="def-exp-part d-flex align-items-center justify-content-center">
-                    <textarea placeholder="definition"></textarea>
-                    <textarea placeholder="example"></textarea>
-                    <button class="c-button delete-def-btn"></button>
-                </div>
-            </div>
-        </div>
+        <div id="start"></div>
         <div class="container-fluid word-div d-flex flex-row justify-content-center align-items-center new-word">
             <span> Add new word </span>
         </div>

@@ -202,24 +202,24 @@ function addFieldOfWord(idOfWord){
     var newIdOfCounter = idOfWord+'_counter';
     var newIdToDelete = "'"+idOfWord+"'";
 
-    var htmlOfCheckBox = '<form class="checkBoxField">';
+    var htmlOfCheckBox = '<div class="checkbox-field d-flex justify-content-sm-between flex-wrap justify-content-evenly">';
     for(var i=0; i<partOfSpeeches.length; i++){
         var newIdOfBox = idOfWord+'_'+partOfSpeeches[i];
-        htmlOfCheckBox += '<input type="checkbox" class="checkBox" id="'+newIdOfBox+'" onclick="addOrDeletePartOfSpeech(event)"><label for="'+newIdOfBox+'">'+partOfSpeeches[i]+'</label>';
+        htmlOfCheckBox += '<span><input type="checkbox" class="checkBox" id="'+newIdOfBox+'" onclick="addOrDeletePartOfSpeech(event)"><label for="'+newIdOfBox+'">'+partOfSpeeches[i]+'</label></span>';
     }
-    htmlOfCheckBox += '</form>';
+    htmlOfCheckBox += '</div>';
 
     var orderOfWord = parseInt(sessionStorage.getItem("orderOfWord")) + 1;
     sessionStorage.setItem("orderOfWord", orderOfWord);
 
-    document.getElementById('start').insertAdjacentHTML('beforeend', '<div class="wordArea" id="'+newIdOfField+'"><div class="firstLine"><span name="order">'+orderOfWord+'. Enter the word: </span><input type="text" id="'+idOfWord+'" name="words" oninput="saveWord(event)" class="wordName" maxlength="15"><span title="Number of lines used in the card"id="'+newIdOfCounter+'" class="counter" style="color: black;">0/16 lines</span><button title="Delete word" type="button" class="deleteWord" onclick="deleteWord('+newIdToDelete+')"></button></div>'+htmlOfCheckBox+'</div>');
+    document.getElementById('start').insertAdjacentHTML('beforeend', '<div class=" container-fluid d-flex flex-column align-items-center word-div" id="'+newIdOfField+'"><div class="word-disc container-fluid"><span name="order">'+orderOfWord+'. Enter the word: </span><span class="input-mobile"><input type="text" id="'+idOfWord+'" name="words" oninput="saveWord(event)" class="wordName" maxlength="15"><button class="c-button delete-word delete-word-mobile" onclick="deleteWord('+newIdToDelete+')"></button></span><span title="Number of lines used in the card" id="'+newIdOfCounter+'" class="counter" style="color: black;">1/16 lines</span><button class="c-button delete-word delete-word-desktop mx-1" onclick="deleteWord('+newIdToDelete+')"></button></div>'+htmlOfCheckBox+'</div>');
 }
 
 function addFieldOfPartOfSpeech(idOfWord, partOfSpeech){
     var idOfFieldAppear = idOfWord+'_field';
     var newIdOfField = idOfWord+'_'+partOfSpeech+'_field';
     var newDataToAddDef = "'"+idOfWord+"', '"+partOfSpeech+"'";
-    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div id="'+newIdOfField+'" class="defExpArea"><span class="partOfSpeech">'+partOfSpeech+'</span><button title="Add new definition and example" type="button" class="addDefExp my-custom-button" onclick="addNewDefinition('+newDataToAddDef+')"></button></div>');
+    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp" id="'+newIdOfField+'"><div class="def-span"><span style="margin: 0 5px; font-size: 16px;">'+partOfSpeech+'</span><button class="c-button add-def-btn" title="Add new definition and example" onclick="addNewDefinition('+newDataToAddDef+')"></button></div></div>');
 
     setNumberOfLines(idOfWord);
 }
@@ -232,9 +232,8 @@ function addFieldOfDefinition(idOfWord, partOfSpeech, idOfDef){
     var newIdOfDef = idOfWord+'/'+partOfSpeech+'/'+idOfDef+'_def';
     var newIdOfExp = idOfWord+'/'+partOfSpeech+'/'+idOfDef+'_exp';
 
-    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="defexp" id="'+newIdOfField+'"><textarea placeholder="definition" id="'+newIdOfDef+'" oninput="saveTextAreaDef(event)"></textarea><textarea placeholder="example" id="'+newIdOfExp+'" oninput="saveTextAreaExp(event)"></textarea><button title="Delete definition and example" type="button" class="defexpDelete" onclick="deleteDefinition('+newDataToDelete+')"></button></div>');
+    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp-part d-flex align-items-center justify-content-center" id="'+newIdOfField+'"><textarea placeholder="definition" id="'+newIdOfDef+'" oninput="saveTextAreaDef(event)"></textarea><textarea placeholder="example" id="'+newIdOfExp+'"oninput="saveTextAreaExp(event)"></textarea><button  title="Delete definition and example" class="c-button delete-def-btn" onclick="deleteDefinition('+newDataToDelete+')"></button></div>');
 }
-
 
 function addNewWord(){
    db.collection(pathToSet).add({
