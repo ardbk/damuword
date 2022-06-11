@@ -1,17 +1,3 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyDaNRi01T869j0i-bP4fcUWoFEAqLQ4UCc",
-  authDomain: "tenwords-91574.firebaseapp.com",
-  projectId: "tenwords-91574",
-  storageBucket: "tenwords-91574.appspot.com",
-  messagingSenderId: "808767742785",
-  appId: "1:808767742785:web:afa464c329dde9323937c0",
-  measurementId: "G-7YP48C1N6M"
-};
-
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
-var auth =  firebase.auth();
 var db = firebase.firestore();
 var storage = firebase.storage();
 var uid;
@@ -19,7 +5,7 @@ var uid;
 start();
 
 function start(){
-   document.getElementById("settings").style.display = "none";
+   startLoader();
    auth.onAuthStateChanged((user) => {
       if (user) {
          uid = user.uid;
@@ -47,6 +33,7 @@ function setProfileImage(){
             document.getElementById("userImage").src = url;
          });
       }
+      stopLoader();
    });
 }
 

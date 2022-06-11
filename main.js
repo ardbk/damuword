@@ -7,6 +7,17 @@ var space = '%-%';
 var numberOfWords;
 var pathToSet;
 
+function createSet() {
+   auth.onAuthStateChanged((user) => {
+       if (user) {
+           localStorage.clear();
+           window.open("https://tenwords.kz/write/", "_self");
+       } else {
+           window.open("https://tenwords.kz/write/", "_self");
+       }
+   });
+}
+
 createPath();
 
 function createPath(){
@@ -19,7 +30,21 @@ function createPath(){
    });
 }
 
+var readFile = function(event){
+   var file = event.target.files[0];
+   var reader = new FileReader();
+   reader.readAsText(file);
+
+   var nameOfSet = file.name.slice(0, file.name.length-4);
+
+   reader.onload = function(){
+      var text = reader.result;
+      readSet(text, nameOfSet);
+   }
+}
+
 function openReadySet(name){
+   startLoader();
    storage.ref('sets/'+name+'.txt').getDownloadURL().then(url => {
        fetch(url).then(function(response) {
            response.text().then(function(text) {
@@ -34,6 +59,7 @@ function openReadySet(name){
 }
 
 function readSet(text, name){
+   startLoader();
    var idOfSet = getRandomId();
    setNameOfSet(idOfSet, name);
    localStorage.setItem("idOfSet", idOfSet);
@@ -129,6 +155,7 @@ function storeWord(word){
 
       Promise.all([a1, a2, a3, a4, a5, a6]).then(() => {
          if (parseInt(sessionStorage.getItem("numberOfWords"))+1 == numberOfWords) {
+            stopLoader();
             window.open('https://tenwords.kz/write/', '_self');
          } else {
             var t = parseInt(sessionStorage.getItem("numberOfWords"))+1;
@@ -319,3 +346,4 @@ function getRandomId() {
     }
     return result;
 }
+

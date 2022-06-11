@@ -1,85 +1,83 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
+.body {
+   min-height: calc(100vh - 300px);
+   width: fit-content;
+   max-width: 1200px;
+   margin: 0px auto;
+   justify-content: center;
+   font-family: Poppins, sans-serif;
+   /* background-color: red; */
 }
 
-.w-inline-block {
-    max-width: 100%;
-    display: inline-block;
-}
-
-body {
-    font-family: Poppins, sans-serif;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 100vh;
-}
-
-.firstSection {
-    padding: 50px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.setBox {
+   width: 60%;
+   height: fit-content;
+   background-color: #f1f1f1;
+   border-radius: 10px;
+   margin: 25px auto;
+   padding: 0 0 20px 0;
 }
 
 .profileBox {
-    font-size: 14px;
-    width: 280px;
-    min-width: 280px;
-    min-height: 460px;
-    background-color: #f5d45d;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+   width: 300px;
+   height: 400px;
+   background-color: #f5d45d;
+   border-radius: 10px;
+   margin: 25px auto;
+   padding: 20px;
 }
-.imageDiv {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+
+.profileBox-1 {
+   margin: 0px auto;
+   width: 50%;
+   max-width: 150px;
+   max-height: 150px;
+   overflow: hidden;
 }
+
+.profileBox-2 {
+   margin: 15px 15px 0 15px;
+}
+
+.profileBox-3 {
+   margin: 0 15px 0px 15px;
+}
+
+.collapse-button {
+   width: fit-content;
+   margin: 0 auto;
+   cursor: pointer;
+
+}
+
+/* ---------------- PROFILE ---------------- */
 .profileImage {
-    width: 200px;
-    height: 200px;
-    background-color: pink;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 10px;
-    overflow: hidden;
 }
+
 .profileInfo {
-    width: 90%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
+   margin: 0px;
+   font-size: 14px;
+   font-family: Poppins, sans-serif;
 }
-.profileName {
-    font-size: 16px;
-    font-weight: bold;
-}
-.profileEmail {
-}
+
 .profileQuote {
     margin: 10px 0;
     padding-left: 10px;
-    border-left: 8px solid;
+    border-left: 4px solid;
     border-color: white;
-    text-align: justify;
+    text-align: left;
     font-weight: bold;
+    font-size: 14px;
 }
-.profileButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.profileButton {
+   margin: 0 0 0 0;
+   width: 100%;
 }
-.accountSettings {
+
+.profileButton-inner {
     color: black;
     font-size: 14px;
     border-radius: 100px;
@@ -93,186 +91,98 @@ body {
     cursor: pointer;
     margin: 5px;
 }
-.accountSettings:hover {
-    background-color: white;
-    border: none;
-}
-.accountBox {
-    margin-left: 30px;
-    width: 670px;
-    min-width: 670px;
-    border-radius: 20px;
-    background-color: #f1f1f1;
-    padding: 20px;
-    height: min-content;
-}
 
-.sets {
-    position: relative;
-    display: flex;
-    height: auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    border-radius: 20px;
-    background-color: #fafafa;
-    opacity: 1;
-    cursor: pointer;
-    height: 140px;
-    width: 180px;
-    min-width: 170px;
-    margin: 15px;
+.profileButton-inner:hover {
+    background-color: #333;
+    color: #f5d45d;
 }
-
-.sets:hover {
-    box-shadow: 0 0 10px 0 #8f8f8f;
-}
-
-.deleteSet {
-    visibility: hidden;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: url("removeWordButton.png");
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-.deleteSet:hover {
-    background: url("removeWordButton2.png");
-    background-size: 20px 20px;
-}
-.sets:hover button.deleteSet {
-    visibility: visible;
-}
-.fourth-section-heading {
-    font-family: Poppins, sans-serif;
-    font-size: 18px;
-    margin: 5px;
-}
-
-.sets-heading {
-    margin-right: 10px;
-    margin-left: 15px;
-    font-family: Poppins, sans-serif;
-    font-size: 20px;
-}
-
-.sets-paragraph {
-    margin-right: 10px;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    font-family: Poppins, sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.addSet {
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    color: grey;
-}
-
-.settingsDiv {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    background-color: #faeec1;
-}
-.settingsSpan {
-    font-size: 40px;
-    letter-spacing: 0.5px;
-    font-weight: bold;
-}
-
-.settingsFN {
-    margin-top: 5px;
-    font-weight: bolder;
-}
-
-input {
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    font-size: 16px;
-    padding: 10px 10px;
-    margin: 5px;
-    width: 300px;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-}
-
-input:focus {
-    outline: none;
-    border: 1px solid #348feb;
-}
-textarea {
-    border: 1px solid #ccc;
-    padding: 10px 10px;
-    font-size: 16px;
-    width: 300px;
-    min-height: 80px;
-    resize: none;
-}
-
-textarea:focus {
-    outline: none;
-    border: 1px solid #348feb;
-}
-.quoteInput {
-    border-radius: 10px;
-    height: 50px;
-}
-
-.submit {
-    margin-top: 20px;
-    border: none;
-    border-radius: 30px;
-    background-color: #f5d45d;
-    padding: 15px 30px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.chooseFile {
-    border: none;
-    margin: 5px;
-    border-radius: 30px;
-    padding: 8px 50px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #f5d45d;
-}
-
-input[type="file"] {
+.collapse-button {
     display: none;
 }
-#background {
-    width: 100%;
+.collapse-b {
+    font-size: 14px;
+    border-radius: 25px;
 }
+/* ---------------- CARDS ---------------- */
+.card {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.span-set-name {
+    width:inherit;
+    background-color: green;
+}
+.setName {
+   font-family: Poppins, sans-serif;
+   font-size: 20px;
+   font-weight: 700;
+   margin-bottom: 15px;
+}
+
+.set {
+   padding: 20px 20px 0 20px;
+}
+/* ---------------- CARDS ---------------- */
+
+
+/* ---------------- MOBILE ---------------- */
+
+@media screen and (min-width: 850px) {
+   .body {
+      display: flex;
+   }
+}
+
+@media screen and (max-width: 850px) {
+   .profileBox {
+      height: fit-content;
+      min-width: 250px;
+      width: 80vw;
+      max-width: 450px;
+   }
+
+   .setBox {
+      min-width: 250px;
+      width: 80vw;
+      max-width: 450px;
+   }
+
+   .profileButton {
+      margin: 0 auto;
+      width: fit-content;
+   }
+}
+@media screen and (max-width: 400px) {
+    .card {
+        height: 170px;
+        font-size: 12px;
+    }
+    .card-title {
+        font-size: 16px;
+    }
+    .set {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .collapse-button {
+        display: block;
+        margin-top: 5px;
+    }
+}
+/* ---------------- MOBILE ---------------- */
+
+/* ---------------- THINGS THAT I DON'T UNDERSTAND ---------------- */
+
+/* ---------------- THINGS THAT I DON'T UNDERSTAND ---------------- */

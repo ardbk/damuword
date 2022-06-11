@@ -16,16 +16,6 @@ var exampleType = 'italic', exampleSize = 10;
 var numberOfWords = 0;
 var pathToSet;
 
-function startLoader(){
-   document.getElementById("loader").style.display = 'block';
-   document.getElementById("body").style.filter = 'blur(15px)';
-}
-
-function stopLoader(){
-   document.getElementById("loader").style.display = 'none';
-   document.getElementById("body").style.filter = 'blur(0px)';
-}
-
 getUID();
 
 function getUID(){
@@ -483,7 +473,7 @@ function deleteSet(){
 
 
 function download(){
-    var filename = 'tenwords.txt';
+    var filename = document.getElementById('setNameInput').value + '.txt';
     var text = convertToText();
 
     var element = document.createElement('a');

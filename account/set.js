@@ -27,7 +27,7 @@ function addSet(index, name){
          i++;
       }
       text = text + "...";
-      document.getElementById("sets").insertAdjacentHTML('beforeend', '<div class="sets" data-index="'+index+'" data-name="'+name+'" id="'+index+'" onclick="openSet(this.id)"><h3 class="sets-heading">'+name+'</h3><p class="sets-paragraph">'+text+'</p></div>');
+      document.getElementById("sets").insertAdjacentHTML('beforeend', '<div class="col-6 col-md-6 col-lg-4"><div class="card" id="'+index+'" onclick="openSet(this.id)"><div class="card-body"><h5 class="card-title">'+name+'</h5><p class="set-text card-text" style="font-size:12px;">'+text+'</p></div></div></div>');
    });
 }
 
