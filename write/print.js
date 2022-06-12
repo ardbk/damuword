@@ -15,8 +15,8 @@ function downloadPDF(){
 
    for (var i = 0; i < words.length; i++) {
       var orderOfWord = i%12;
-      var orderOfPage = 2*parseInt(orderOfWord/12) - 1;
-      setWord(orderOfPage, orderOfWord, words[i].value);
+      var orderOfPage = 2*parseInt(orderOfWord/12);
+      setWord(orderOfPage+1, orderOfWord, words[i].value);
       var textPOS = "";
       var orderOfLine = 1;
       for (var j = 0; j < partOfSpeeches.length; j++) {
@@ -24,15 +24,15 @@ function downloadPDF(){
          if (document.getElementById(idOfBox).checked == true) {
             textPOS = textPOS + partOfSpeeches[j] + ", ";
 
-            orderOfLine = setPartOfSpeech(orderOfPage, orderOfWord, partOfSpeeches[j], orderOfLine);
+            orderOfLine = setPartOfSpeech(orderOfPage+2, orderOfWord, partOfSpeeches[j], orderOfLine);
 
             var ele = document.getElementById(idOfBox+"_field").getElementsByTagName("textarea");
             for (var k = 0; k < ele.length; k = k+2) {
                var textDef = ele[k].value;
-               orderOfLine = setDefinition(orderOfPage, orderOfWord, textDef, orderOfLine);
+               orderOfLine = setDefinition(orderOfPage+2, orderOfWord, textDef, orderOfLine);
 
                var textExp = ele[k+1].value;
-               orderOfLine = setExample(orderOfPage, orderOfWord, textExp, orderOfLine);
+               orderOfLine = setExample(orderOfPage+2, orderOfWord, textExp, orderOfLine);
             }
          }
       }
@@ -43,7 +43,7 @@ function downloadPDF(){
 }
 
 function setWord(page, order, word){
-   pdf.setPage(page+1);
+   pdf.setPage(page);
 
    var y = parseInt(order/3);
    var x = order - 3*y;
@@ -57,7 +57,7 @@ function setWord(page, order, word){
 }
 
 function setTextPOS(page, order, partOfSpeech){
-   pdf.setPage(page+1);
+   pdf.setPage(page);
 
    var y = parseInt(order/3);
    var x = order - 3*y;
@@ -71,7 +71,7 @@ function setTextPOS(page, order, partOfSpeech){
 }
 
 function setPartOfSpeech(page, order, partOfSpeech, line){
-   pdf.setPage(page+2);
+   pdf.setPage(page);
 
    var y = parseInt(order/3);
    var x = order - 3*y;
@@ -90,7 +90,7 @@ function setDefinition(page, order, text, line){
    if (text) {
       text = "- "+text;
 
-      pdf.setPage(page+2);
+      pdf.setPage(page);
 
       var y = parseInt(order/3);
       var x = order - 3*y;
@@ -121,7 +121,7 @@ function setDefinition(page, order, text, line){
 
 function setExample(page, order, text, line){
    if (text) {
-      pdf.setPage(page+2);
+      pdf.setPage(page);
 
       var y = parseInt(order/3);
       var x = order - 3*y;
