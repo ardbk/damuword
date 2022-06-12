@@ -420,6 +420,7 @@ function findBreak(text, type, size){
 
 function deleteSet(){
    if(confirm('Do you really want to delete everything?')){
+      startLoader();
       db.collection("tenwords").doc(uid).get().then((doc) => {
          var arrIndex = new Array();
          var arrName = new Array();
