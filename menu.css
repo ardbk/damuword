@@ -5,6 +5,16 @@
     font-size: 20px;
     padding: 20px;
 }
+.menu-account {
+    width: 30px;
+    height: 30px;
+    background-image: url("images/icon.png");
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0 10px;
+}
 .navbar-brand {
     font-weight: 600;
     font-family: Poppins, sans-serif;
