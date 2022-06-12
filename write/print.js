@@ -15,7 +15,7 @@ function downloadPDF(){
 
    for (var i = 0; i < words.length; i++) {
       var orderOfWord = i%12;
-      var orderOfPage = 2*parseInt(orderOfWord/12);
+      var orderOfPage = 2*parseInt(i/12);
       setWord(orderOfPage+1, orderOfWord, words[i].value);
       var textPOS = "";
       var orderOfLine = 1;
@@ -38,7 +38,7 @@ function downloadPDF(){
       }
    }
 
-   var fileName = 'damuword - ' + document.getElementById("setNameInput").value + '.pdf';
+   var fileName = 'damuword_' + document.getElementById("setNameInput").value + '.pdf';
    pdf.save(fileName);
 }
 
