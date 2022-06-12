@@ -76,7 +76,7 @@ function setPartOfSpeech(page, order, partOfSpeech, line){
    var y = parseInt(order/3);
    var x = order - 3*y;
    y = y*72 + 74;
-   x = (2-x)*67 + 3 + 4*line;
+   x = (2-x)*67 + 4 + 4*line;
 
    pdf.setFontType('bold');
    pdf.setTextColor(0,0,0);
