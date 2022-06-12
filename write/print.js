@@ -38,7 +38,8 @@ function downloadPDF(){
       }
    }
 
-   pdf.save('tenwords.pdf');
+   var fileName = 'damuword - ' + document.getElementById("setNameInput").value + '.pdf';
+   pdf.save(fileName);
 }
 
 function setWord(page, order, word){
