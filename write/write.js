@@ -354,15 +354,15 @@ function setNumberOfLines(idOfWord){
         var idOfPartOfSpeech = idOfWord+'_'+partOfSpeeches[i];
         if(document.getElementById(idOfPartOfSpeech).checked == true){
            numberOfLines++;
-           var ele = document.getElementById(idOfWord+"_field").getElementsByTagName("textarea");
-           for(var j=0; j<ele.length; j=j+2){
-
-               var txtDef = ele[j].value;
-               var txtExp = ele[j+1].value;
-
-               numberOfLines += numberOfLinesOfText(txtDef, definitionType, definitionSize) + numberOfLinesOfText(txtExp, exampleType, exampleSize);
-           }
         }
+        var ele = document.getElementById(idOfWord+"_field").getElementsByTagName("textarea");
+         for(var j=0; j<ele.length; j=j+2){
+
+            var txtDef = ele[j].value;
+            var txtExp = ele[j+1].value;
+
+            numberOfLines += numberOfLinesOfText(txtDef, definitionType, definitionSize) + numberOfLinesOfText(txtExp, exampleType, exampleSize);
+         }
     }
 
     var idOfCounter = idOfWord+'_counter';
@@ -381,7 +381,7 @@ function setNumberOfLines(idOfWord){
 
 function numberOfLinesOfText(text, type, size){
     var lines = 0;
-    if (text) {
+    if (text != '') {
       if (type == "normal") {
          text = "- "+text;
       }
