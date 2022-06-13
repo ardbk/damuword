@@ -130,7 +130,7 @@
  }
  .dropdown-menu {
      margin: -40px 0px;
-     transform: translate3d(0px, 100px, 1);
+     transform: translate3d(0px, 100px, 0);
  }
  .span-set-name {
      width:inherit;
