@@ -37,8 +37,8 @@ function openSet(){
       pathToSet = "tenwords/"+uid+"/"+localStorage.getItem("idOfSet");
       draftPage();
       if (uid != "guests") {
-         setNameOfSet(idOfSet);
          document.getElementById("setName").style.display = "flex";
+         setNameOfSet(idOfSet);
       } else {
          document.getElementById("setName").style.display = "none";
       }
