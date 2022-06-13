@@ -39,8 +39,7 @@ function setProfileImage(){
 
 function openSettings(){
    document.getElementById('settings').style.display = "flex";
-   document.getElementById('body').style.filter = "blur(10px)";
-   document.getElementById('body').style.pointerEvents = "none";
+   document.getElementById('body').style.display = "none";
 
    document.getElementById('setUserName').value = document.getElementById("userName").innerHTML;
    document.getElementById('setUserQuote').value = document.getElementById("userQuote").innerHTML;
@@ -49,8 +48,7 @@ function openSettings(){
 function closeSettings(){
    user = auth.currentUser;
    document.getElementById('settings').style.display = "none";
-   document.getElementById('body').style.filter = "blur(0px)";
-   document.getElementById('body').style.pointerEvents = "auto";
+   document.getElementById('body').style.display = "block";
 
    var oldUserName = document.getElementById("userName").innerHTML;
    var newUserName = document.getElementById('setUserName').value;
