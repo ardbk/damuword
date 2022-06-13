@@ -97,33 +97,33 @@ function closeSettings(){
    }
 }
 
-function updateProfileImage(){
-   var name = document.getElementById("userImage").src;
+// function updateProfileImage(){
+//    var name = document.getElementById("userImage").src;
 
-   storage.refFromURL(name).delete().then(() => {
+//    storage.refFromURL(name).delete().then(() => {
 
-   });
+//    });
 
-   storage.ref('profilePictures/'+uid+'/profile.jpg').put(file).then((snapshot) => {
-      updateProfileImage(uid);
-   }).catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert( 'Unable to update profile picture. \n' + errorCode + ' -- ' + errorMessage);
-   });
+//    storage.ref('profilePictures/'+uid+'/profile.jpg').put(file).then((snapshot) => {
+//       updateProfileImage(uid);
+//    }).catch((error) => {
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       alert( 'Unable to update profile picture. \n' + errorCode + ' -- ' + errorMessage);
+//    });
 
-   storage.ref('profilePictures/'+uid).listAll().then((res) => {
-      if (res.items[0]) {
-         res.items[0].getDownloadURL().then((url) => {
-            document.getElementById("userImage").src = url;
-         });
-      } else {
-         storage.ref('profilePictures/default/account.png').getDownloadURL().then((url) => {
-            document.getElementById("userImage").src = url;
-         });
-      }
-   });
-}
+//    storage.ref('profilePictures/'+uid).listAll().then((res) => {
+//       if (res.items[0]) {
+//          res.items[0].getDownloadURL().then((url) => {
+//             document.getElementById("userImage").src = url;
+//          });
+//       } else {
+//          storage.ref('profilePictures/default/account.png').getDownloadURL().then((url) => {
+//             document.getElementById("userImage").src = url;
+//          });
+//       }
+//    });
+// }
 
 function openPage(page){
    if (page == 'account'){

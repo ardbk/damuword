@@ -75,10 +75,10 @@
                            +
                            </button>
                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <button class="dropdown-item" type="button" onclick="createSet()">Add set</button>
+                              <button class="dropdown-item" type="button" onclick="createSet()">Create set</button>
                               <a class="dropdown-item">
                                  <input type="file" accept=".txt" id="input" onchange="readFile(event)" hidden>
-                                 <label for="input">Upload the set</label>
+                                 <label for="input">Upload set</label>
                               </a>
                            </div>
                      </div>
@@ -146,9 +146,9 @@
       <label for="setUserFile" class="chooseFile" id="fileName"> Choose File </label>
       <input type="file" accept="image/*" id="setUserFile" onchange="fileName()" />
       <span class="settingsFN"> Username </span>
-      <input id="setUserName" />
+      <input id="setUserName" maxlength="10"/>
       <span class="settingsFN"> Study Quote </span>
-      <textarea class="quoteInput" id="setUserQuote"> </textarea>
+      <textarea class="quoteInput" id="setUserQuote"  maxlength="100"> </textarea>
       <button class="submit" onclick="closeSettings()">Submit</button>
    </div>
 </body>
