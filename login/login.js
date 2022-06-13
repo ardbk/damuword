@@ -105,6 +105,7 @@ function reset(){
    }).catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
+      update(sessionStorage.getItem('login'));
       alert(errorCode + ' -- ' + errorMessage + '\nPlease, contact us if you have questions!');
    });
 }

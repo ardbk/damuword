@@ -17,8 +17,10 @@ body {
 }
 
 .textIcon {
+    cursor: pointer;
     margin-top: 20vh;
     margin-bottom: 10px;
+
 }
 .header-heading {
     display: flex;

@@ -24,7 +24,7 @@ function downloadPDF(){
          if (document.getElementById(idOfBox).checked == true) {
             textPOS = textPOS + partOfSpeeches[j] + ", ";
 
-            orderOfLine = setPartOfSpeech(orderOfPage+2, orderOfWord, partOfSpeeches[j], orderOfLine);
+            orderOfLine = setPOSBack(orderOfPage+2, orderOfWord, partOfSpeeches[j], orderOfLine);
 
             var ele = document.getElementById(idOfBox+"_field").getElementsByTagName("textarea");
             for (var k = 0; k < ele.length; k = k+2) {
@@ -36,6 +36,8 @@ function downloadPDF(){
             }
          }
       }
+      textPOS = textPOS.slice(0, textPOS.length-2);
+      setPOSFront(orderOfPage+1, orderOfWord, textPOS);
    }
 
    var fileName = 'damuword_' + document.getElementById("setNameInput").value + '.pdf';
@@ -56,7 +58,7 @@ function setWord(page, order, word){
    pdf.text(word, x, y, 90);
 }
 
-function setTextPOS(page, order, partOfSpeech){
+function setPOSFront(page, order, partOfSpeech){
    pdf.setPage(page);
 
    var y = parseInt(order/3);
@@ -70,7 +72,7 @@ function setTextPOS(page, order, partOfSpeech){
    pdf.text(partOfSpeech, x, y, 90);
 }
 
-function setPartOfSpeech(page, order, partOfSpeech, line){
+function setPOSBack(page, order, partOfSpeech, line){
    pdf.setPage(page);
 
    var y = parseInt(order/3);
