@@ -38,13 +38,16 @@ function openSet(){
       draftPage();
       if (uid != "guests") {
          setNameOfSet(idOfSet);
+         document.getElementById("setName").style.display = "flex";
       } else {
-         document.getElementById("setDiv").style.display = "none";
+         document.getElementById("setName").style.display = "none";
       }
    } else {
       var idOfSet = localStorage.getItem("idOfSet");
       pathToSet = "tenwords/"+uid+"/"+idOfSet;
-      getNameOfSet(idOfSet);
+      if (uid != "guests") {
+         getNameOfSet(idOfSet);
+      }
       setAllData();
    }
 }
