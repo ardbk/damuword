@@ -16,12 +16,13 @@ body {
     background-color: #f1f1f1;
 }
 
+#body {
+    height: 100vh;
+}
 .textIcon {
     cursor: pointer;
-    margin-top: 20vh;
-    margin-bottom: 10px;
-
 }
+
 .header-heading {
     display: flex;
     margin-bottom: 5px;
@@ -177,6 +178,6 @@ input {
     animation:c2 1s linear infinite;
     display: none;
   }
- 
+
   @keyframes c2 {to{background-size: 100% 3px}}
   /* -------------------- LOADER -------------------- */

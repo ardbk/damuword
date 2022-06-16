@@ -56,7 +56,7 @@
 }
 
 .text-block {
-    max-width: 530px;
+    max-width: 800px;
     min-width: 0px;
     font-family: Poppins, sans-serif;
     color: #6e6e6e;
@@ -64,7 +64,15 @@
     text-align: center;
     font-size: 13px;
 }
-
+.text-block-2 {
+    max-width: 800px;
+    min-width: 0px;
+    font-family: Poppins, sans-serif;
+    color: #6e6e6e;
+    line-height: 16px;
+    text-align: center;
+    font-size: 13px;
+}
 .link {
     color: #727272;
 }

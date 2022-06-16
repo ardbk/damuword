@@ -453,7 +453,12 @@ a:hover {
     top: 57px;
     z-index: 0;
 }
-
+.card {
+    padding: 0 !important;
+}
+.card-body {
+    width: 100%;
+}
 .cards-row {
     width: 70%;
 }
@@ -496,7 +501,7 @@ a:hover {
 }
 @media screen and (max-width: 767px) {
     .header-heading-span {
-        font-size: 90px;
+        font-size: 80px;
     }
     .info-right {
         width: 80%;
@@ -568,7 +573,7 @@ a:hover {
         display: none;
     }
     .header-heading-span {
-        font-size: 70px;
+        font-size: 55px;
     }
     .cards-row {
         width: 100%;
@@ -588,6 +593,9 @@ a:hover {
         font-size: 20px;
     }
     .heading {
-        font-size: 24px;
+        font-size: 20px;
+    }
+    .card-body {
+        padding: 5px;
     }
 }

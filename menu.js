@@ -29,10 +29,10 @@ const firebaseConfig = {
     if (user) {
        document.getElementById("signup").style.display = "none";
        document.getElementById("login").style.display = "none";
-       document.getElementById("account").style.display = "inline-block";
+       document.getElementById("account").style.display = "flex";
     } else {
-       document.getElementById("signup").style.display = "inline-block";
-       document.getElementById("login").style.display = "inline-block";
+       document.getElementById("signup").style.display = "flex";
+       document.getElementById("login").style.display = "flex";
        document.getElementById("account").style.display = "none";
     }
  });
