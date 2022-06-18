@@ -233,11 +233,14 @@ a:hover {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.video-section {
+.third-section {
     background-image: url("images/third_background.png");
     min-height: 500px;
 }
-
+.paragraph-3 {
+    width: 50%;
+    font-size: 22px;
+}
 .buttons-section {
     min-height: 350px;
     background-color: #f5d45d;
@@ -454,7 +457,7 @@ a:hover {
     z-index: 0;
 }
 .card {
-    padding: 0 !important;
+    padding: 8px !important;
 }
 .card-body {
     width: 100%;
@@ -512,6 +515,10 @@ a:hover {
 
     .info-image.info-image-3 {
         right: 5%;
+    }
+    .paragraph-3 {
+        width: 90%;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 479px) {
