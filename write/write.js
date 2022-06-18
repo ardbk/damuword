@@ -34,7 +34,7 @@ function openSet(){
    if (!localStorage.getItem("idOfSet")) {
       var idOfSet = getRandomId();
       localStorage.setItem("idOfSet", idOfSet);
-      pathToSet = "tenwords/"+uid+"/"+localStorage.getItem("idOfSet");
+      pathToSet = "damuword/"+uid+"/"+localStorage.getItem("idOfSet");
       draftPage();
       if (uid != "guests") {
          document.getElementById("setName").style.display = "flex";
@@ -44,7 +44,7 @@ function openSet(){
       }
    } else {
       var idOfSet = localStorage.getItem("idOfSet");
-      pathToSet = "tenwords/"+uid+"/"+idOfSet;
+      pathToSet = "damuword/"+uid+"/"+idOfSet;
       if (uid != "guests") {
          document.getElementById("setName").style.display = "flex";
          getNameOfSet(idOfSet);
@@ -65,7 +65,7 @@ function getRandomId() {
 }
 
 function getNameOfSet(idOfSet){
-   db.collection("tenwords").doc(uid).get().then((doc) => {
+   db.collection("damuword").doc(uid).get().then((doc) => {
       var arrIndex = new Array();
       var arrName = new Array();
       arrIndex = doc.data().index;
@@ -85,7 +85,7 @@ function getNameOfSet(idOfSet){
 function setNameOfSet(idOfSet){
    document.getElementById("setNameInput").value = "Draft";
 
-   db.collection("tenwords").doc(uid).get().then((doc) => {
+   db.collection("damuword").doc(uid).get().then((doc) => {
       var arrIndex = new Array();
       var arrName = new Array();
 
@@ -99,7 +99,7 @@ function setNameOfSet(idOfSet){
          arrIndex[0] = idOfSet.toString();
          arrName[0] = "Draft";
       }
-      db.collection("tenwords").doc(uid).update({
+      db.collection("damuword").doc(uid).update({
          index: arrIndex,
          name: arrName
       });
@@ -107,7 +107,7 @@ function setNameOfSet(idOfSet){
 }
 
 function changeNameOfSet(){
-   db.collection("tenwords").doc(uid).get().then((doc) => {
+   db.collection("damuword").doc(uid).get().then((doc) => {
       var arrIndex = new Array();
       var arrName = new Array();
 
@@ -125,7 +125,7 @@ function changeNameOfSet(){
          }
       }
 
-      db.collection("tenwords").doc(uid).update({
+      db.collection("damuword").doc(uid).update({
          index: arrIndex,
          name: arrName
       });
@@ -428,7 +428,7 @@ function deleteSet(){
    if(confirm('Do you really want to delete everything?')){
       startLoader();
       if (uid != "guests"){
-         db.collection("tenwords").doc(uid).get().then((doc) => {
+         db.collection("damuword").doc(uid).get().then((doc) => {
             var arrIndex = new Array();
             var arrName = new Array();
    
@@ -447,7 +447,7 @@ function deleteSet(){
                }
             }
    
-            db.collection("tenwords").doc(uid).update({
+            db.collection("damuword").doc(uid).update({
                index: arrIndex,
                name: arrName
             }).then(() => {

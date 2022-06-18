@@ -1,12 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDaNRi01T869j0i-bP4fcUWoFEAqLQ4UCc",
-  authDomain: "tenwords-91574.firebaseapp.com",
-  projectId: "tenwords-91574",
-  storageBucket: "tenwords-91574.appspot.com",
-  messagingSenderId: "808767742785",
-  appId: "1:808767742785:web:afa464c329dde9323937c0",
-  measurementId: "G-7YP48C1N6M"
-};
+   apiKey: "AIzaSyDL_P3v2GI-T1_yDC5XF8ggakSZklRfZO0",
+   authDomain: "damuword-fdb1b.firebaseapp.com",
+   projectId: "damuword-fdb1b",
+   storageBucket: "damuword-fdb1b.appspot.com",
+   messagingSenderId: "1045885837483",
+   appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee"
+ };
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
@@ -16,7 +15,7 @@ var db = firebase.firestore();
 
 const unsubscribe = auth.onAuthStateChanged((user) => {
    if (user) {
-      window.open('https://tenwords.kz/account', '_self');
+      window.open('https://damuword.kz/account', '_self');
    } else {
       update(sessionStorage.getItem('login'));
    }
@@ -51,7 +50,7 @@ function login(){
     var email = document.getElementById("userEmailLog").value;
     var password  = document.getElementById("userPassLog").value;
     auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-        window.open('https://tenwords.kz/account', '_self');
+        window.open('https://damuword.kz/account', '_self');
     }).catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -72,14 +71,14 @@ function register(){
    auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
       var user = userCredential.user;
 
-      db.collection("tenwords").doc(user.uid).set({
+      db.collection("damuword").doc(user.uid).set({
          quote: "Your future depends on what you do today."
       }).then(() => {
          user.updateProfile({
             displayName: document.getElementById("userNameReg").value
          }).then(() => {
             // console.log("DONE");
-            window.open('https://tenwords.kz/account', '_self');
+            window.open('https://damuword.kz/account', '_self');
          });
       });
    }).catch((error) => {

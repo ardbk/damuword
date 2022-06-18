@@ -11,9 +11,9 @@ function createSet() {
    auth.onAuthStateChanged((user) => {
        if (user) {
            localStorage.clear();
-           window.open("https://tenwords.kz/write/", "_self");
+           window.open("https://damuword.kz/write/", "_self");
        } else {
-           window.open("https://tenwords.kz/write/", "_self");
+           window.open("https://damuword.kz/write/", "_self");
        }
    });
 }
@@ -63,7 +63,7 @@ function readSet(text, name){
    var idOfSet = getRandomId();
    setNameOfSet(idOfSet, name);
    localStorage.setItem("idOfSet", idOfSet);
-   pathToSet = "tenwords/"+uid+"/"+localStorage.getItem("idOfSet");
+   pathToSet = "damuword/"+uid+"/"+localStorage.getItem("idOfSet");
 
    var index = text.indexOf(enter);
    numberOfWords = text.slice(0, index);
@@ -156,7 +156,7 @@ function storeWord(word){
       Promise.all([a1, a2, a3, a4, a5, a6]).then(() => {
          if (parseInt(sessionStorage.getItem("numberOfWords"))+1 == numberOfWords) {
             stopLoader();
-            window.open('https://tenwords.kz/write/', '_self');
+            window.open('https://damuword.kz/write/', '_self');
          } else {
             var t = parseInt(sessionStorage.getItem("numberOfWords"))+1;
             sessionStorage.setItem("numberOfWords", t);
@@ -166,7 +166,7 @@ function storeWord(word){
 }
 
 function setNameOfSet(idOfSet, nameOfSet){
-   db.collection("tenwords").doc(uid).get().then((doc) => {
+   db.collection("damuword").doc(uid).get().then((doc) => {
       var arrIndex = new Array();
       var arrName = new Array();
 
@@ -180,7 +180,7 @@ function setNameOfSet(idOfSet, nameOfSet){
          arrIndex[0] = idOfSet.toString();
          arrName[0] = nameOfSet;
       }
-      db.collection("tenwords").doc(uid).update({
+      db.collection("damuword").doc(uid).update({
          index: arrIndex,
          name: arrName
       });

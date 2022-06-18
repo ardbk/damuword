@@ -1,12 +1,12 @@
 function createSet(){
    localStorage.clear();
-   window.open('https://tenwords.kz/write/', '_self');
+   window.open('https://damuword.kz/write/', '_self');
 }
 
 function startSet(){
    var arrIndex = new Array();
    var arrName = new Array();
-   db.collection("tenwords").doc(uid).get().then((doc) => {
+   db.collection("damuword").doc(uid).get().then((doc) => {
       if (doc.data().index) {
          arrIndex = doc.data().index;
          arrName = doc.data().name;
@@ -19,7 +19,7 @@ function startSet(){
 }
 
 function addSet(index, name){
-   db.collection("tenwords/"+uid+"/"+index).get().then((collection) => {
+   db.collection("damuword/"+uid+"/"+index).get().then((collection) => {
       var i = 0;
       var text = " ";
       while ((i < collection.size) && (i < 4)) {
@@ -33,5 +33,5 @@ function addSet(index, name){
 
 function openSet(id){
    localStorage.setItem("idOfSet", id);
-   window.open('https://tenwords.kz/write/', '_self');
+   window.open('https://damuword.kz/write/', '_self');
 }

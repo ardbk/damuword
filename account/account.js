@@ -12,12 +12,12 @@ function start(){
          document.getElementById("userName").innerHTML = user.displayName;
          document.getElementById("userEmail").innerHTML = user.email;
          setProfileImage();
-         db.collection("tenwords").doc(uid).get().then((doc) => {
+         db.collection("damuword").doc(uid).get().then((doc) => {
             document.getElementById("userQuote").innerHTML = doc.data().quote;
          });
          startSet();
       } else {
-         window.open('https://tenwords.kz', '_self');
+         window.open('https://damuword.kz', '_self');
       }
    });
 }
@@ -68,7 +68,7 @@ function closeSettings(){
    }
 
    if (oldUserQuote != newUserQuote) {
-      db.collection("tenwords").doc(uid).update({
+      db.collection("damuword").doc(uid).update({
          quote: newUserQuote
       }).then(() => {
          document.getElementById("userQuote").innerHTML = newUserQuote;
@@ -99,20 +99,20 @@ function closeSettings(){
 
 function openPage(page){
    if (page == 'account'){
-      window.open('https://tenwords.kz/account/', "_self");
+      window.open('https://damuword.kz/account/', "_self");
    } else if (page == 'login') {
       sessionStorage.setItem('login', 1);
-      window.open('https://tenwords.kz/login/', "_self");
+      window.open('https://damuword.kz/login/', "_self");
    } else if (page == 'signup') {
       sessionStorage.setItem('login', 2);
-      window.open('https://tenwords.kz/login/', "_self");
+      window.open('https://damuword.kz/login/', "_self");
    }
 }
 
 function signOut(){
    localStorage.clear();
    auth.signOut().then(() => {
-      window.open('https://tenwords.kz', "_self");
+      window.open('https://damuword.kz', "_self");
    });
 }
 
