@@ -1,11 +1,10 @@
 const firebaseConfig = {
-   apiKey: "AIzaSyDaNRi01T869j0i-bP4fcUWoFEAqLQ4UCc",
-   authDomain: "tenwords-91574.firebaseapp.com",
-   projectId: "tenwords-91574",
-   storageBucket: "tenwords-91574.appspot.com",
-   messagingSenderId: "808767742785",
-   appId: "1:808767742785:web:afa464c329dde9323937c0",
-   measurementId: "G-7YP48C1N6M"
+   apiKey: "AIzaSyDL_P3v2GI-T1_yDC5XF8ggakSZklRfZO0",
+   authDomain: "damuword-fdb1b.firebaseapp.com",
+   projectId: "damuword-fdb1b",
+   storageBucket: "damuword-fdb1b.appspot.com",
+   messagingSenderId: "1045885837483",
+   appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee"
  };
  
  firebase.initializeApp(firebaseConfig);
@@ -15,13 +14,13 @@ const firebaseConfig = {
  
  function openPage(page){
     if (page == 'account'){
-       window.open('https://tenwords.kz/account/', "_self");
+       window.open('https://damuword.kz/account/', "_self");
     } else if (page == 'login') {
        sessionStorage.setItem('login', 1);
-       window.open('https://tenwords.kz/login/', "_self");
+       window.open('https://damuword.kz/login/', "_self");
     } else if (page == 'signup') {
        sessionStorage.setItem('login', 2);
-       window.open('https://tenwords.kz/login/', "_self");
+       window.open('https://damuword.kz/login/', "_self");
     }
  }
  
