@@ -77,7 +77,6 @@ function register(){
          user.updateProfile({
             displayName: document.getElementById("userNameReg").value
          }).then(() => {
-            // console.log("DONE");
             window.open('https://damuword.kz/account', '_self');
          });
       });

@@ -5,7 +5,7 @@ const firebaseConfig = {
    storageBucket: "damuword-fdb1b.appspot.com",
    messagingSenderId: "1045885837483",
    appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee"
- };
+};
  
  firebase.initializeApp(firebaseConfig);
  firebase.analytics();
