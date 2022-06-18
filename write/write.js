@@ -427,53 +427,75 @@ function findBreak(text, type, size){
 function deleteSet(){
    if(confirm('Do you really want to delete everything?')){
       startLoader();
-      db.collection("tenwords").doc(uid).get().then((doc) => {
-         var arrIndex = new Array();
-         var arrName = new Array();
-
-         arrIndex = doc.data().index;
-         arrName = doc.data().name;
-
-         var j = 0;
-         var idOfSet = localStorage.getItem("idOfSet");
-         while (true) {
-            if (arrIndex[j] == idOfSet) {
-               arrName.splice(j, 1);
-               arrIndex.splice(j, 1);
-               break;
-            } else {
-               j++;
+      if (uid != "guests"){
+         db.collection("tenwords").doc(uid).get().then((doc) => {
+            var arrIndex = new Array();
+            var arrName = new Array();
+   
+            arrIndex = doc.data().index;
+            arrName = doc.data().name;
+   
+            var j = 0;
+            var idOfSet = localStorage.getItem("idOfSet");
+            while (true) {
+               if (arrIndex[j] == idOfSet) {
+                  arrName.splice(j, 1);
+                  arrIndex.splice(j, 1);
+                  break;
+               } else {
+                  j++;
+               }
             }
-         }
-
-         console.log(arrName);
-
-         db.collection("tenwords").doc(uid).update({
-            index: arrIndex,
-            name: arrName
-         }).then(() => {
-            db.collection(pathToSet).get().then((collection) => {
-               collection.docs.forEach(doc => {
-                  var idOfWord = doc.id;
-                  for (var i = 0; i < partOfSpeeches.length; i++) {
-                     var idOfBox = idOfWord+"_"+partOfSpeeches[i];
-                     if(document.getElementById(idOfBox).checked == true){
-                        db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeeches[i]).get().then((collection) => {
-                           collection.docs.forEach(doc => {
-                              doc.ref.delete();
-                           });
-                        });
-                     }
-                  }
-                  db.collection(pathToSet).doc(idOfWord).delete();
-               });
+   
+            db.collection("tenwords").doc(uid).update({
+               index: arrIndex,
+               name: arrName
             }).then(() => {
-               localStorage.clear();
-               sessionStorage.clear();
-               window.open('https://tenwords.kz/account/', '_self');
+               db.collection(pathToSet).get().then((collection) => {
+                  collection.docs.forEach(doc => {
+                     var idOfWord = doc.id;
+                     for (var i = 0; i < partOfSpeeches.length; i++) {
+                        var idOfBox = idOfWord+"_"+partOfSpeeches[i];
+                        if(document.getElementById(idOfBox).checked == true){
+                           db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeeches[i]).get().then((collection) => {
+                              collection.docs.forEach(doc => {
+                                 doc.ref.delete();
+                              });
+                           });
+                        }
+                     }
+                     db.collection(pathToSet).doc(idOfWord).delete();
+                  });
+               }).then(() => {
+                  localStorage.clear();
+                  sessionStorage.clear();
+                  window.open('https://damuword.kz/account/', '_self');
+               });
             });
          });
-      });
+      } else {
+         db.collection(pathToSet).get().then((collection) => {
+            collection.docs.forEach(doc => {
+               var idOfWord = doc.id;
+               for (var i = 0; i < partOfSpeeches.length; i++) {
+                  var idOfBox = idOfWord+"_"+partOfSpeeches[i];
+                  if(document.getElementById(idOfBox).checked == true){
+                     db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeeches[i]).get().then((collection) => {
+                        collection.docs.forEach(doc => {
+                           doc.ref.delete();
+                        });
+                     });
+                  }
+               }
+               db.collection(pathToSet).doc(idOfWord).delete();
+            });
+         }).then(() => {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.open('https://damuword.kz/', '_self');
+         });
+      }
+      
    }
 }
 
