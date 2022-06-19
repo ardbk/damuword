@@ -111,11 +111,11 @@ function reset(){
 function startLoader(){
    document.getElementById('body').style.filter = 'blur(15px)';
    document.getElementById('body').style.pointerEvents = "none";
-   document.getElementById('loader').style.display = 'block';
+   document.getElementById('loader').classList.add("d-flex");
 }
 
 function stopLoader(){
    document.getElementById('body').style.filter = 'blur(0px)';
    document.getElementById('body').style.pointerEvents = "auto";
-   document.getElementById('loader').style.display = 'none';
+   document.getElementById('loader').classList.remove("d-flex");
 } 
