@@ -1,3 +1,20 @@
+const firebaseConfig = {
+   apiKey: "AIzaSyDL_P3v2GI-T1_yDC5XF8ggakSZklRfZO0",
+   authDomain: "damuword-fdb1b.firebaseapp.com",
+   projectId: "damuword-fdb1b",
+   storageBucket: "damuword-fdb1b.appspot.com",
+   messagingSenderId: "1045885837483",
+   appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee",
+   measurementId: "G-H9EJWKL9H4"
+  };
+  
+firebase.initializeApp(firebaseConfig);
+analytics = firebase.analytics();
+
+analytics.logEvent("start");
+ 
+auth =  firebase.auth();
+ 
 function openPage(page){
    if (page == 'account'){
       window.open('https://damuword.kz/account/', "_self");

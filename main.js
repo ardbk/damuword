@@ -1,5 +1,3 @@
-var storage = firebase.storage();
-var db = firebase.firestore();
 var uid;
 
 var enter = '$-$';
