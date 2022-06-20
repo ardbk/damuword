@@ -1,5 +1,5 @@
-var db = firebase.firestore();
-var storage = firebase.storage();
+import {analytics, auth, db, storage} from '/fb_links.js';
+
 var uid;
 
 start();

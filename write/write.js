@@ -1,3 +1,5 @@
+import {analytics, auth, db, storage} from '/fb_links.js';
+
 var partOfSpeeches = new Array(6);
 partOfSpeeches[0] = 'noun';
 partOfSpeeches[1] = 'verb';
