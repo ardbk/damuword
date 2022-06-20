@@ -1,3 +1,5 @@
+export {analytics, auth, db, storage} from 'fb_links.js';
+
 function openPage(page){
    if (page == 'account'){
       window.open('https://damuword.kz/account/', "_self");
