@@ -1,4 +1,4 @@
-import {analytics, auth, db, storage} from 'fb_links.js';
+import {analytics, auth, db, storage} from '/fb_links.js';
 
 function openPage(page){
    if (page == 'account'){
