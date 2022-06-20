@@ -4,25 +4,28 @@ const firebaseConfig = {
    projectId: "damuword-fdb1b",
    storageBucket: "damuword-fdb1b.appspot.com",
    messagingSenderId: "1045885837483",
-   appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee"
+   appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee",
+   measurementId: "G-H9EJWKL9H4"
 };
  
- firebase.initializeApp(firebaseConfig);
- firebase.analytics();
+firebase.initializeApp(firebaseConfig);
+analytics = firebase.analytics();
+
+analytics.logEvent("start");
  
- auth =  firebase.auth();
+auth =  firebase.auth();
  
- function openPage(page){
-    if (page == 'account'){
-       window.open('https://damuword.kz/account/', "_self");
-    } else if (page == 'login') {
-       sessionStorage.setItem('login', 1);
-       window.open('https://damuword.kz/login/', "_self");
-    } else if (page == 'signup') {
-       sessionStorage.setItem('login', 2);
-       window.open('https://damuword.kz/login/', "_self");
-    }
- }
+function openPage(page){
+   if (page == 'account'){
+      window.open('https://damuword.kz/account/', "_self");
+   } else if (page == 'login') {
+      sessionStorage.setItem('login', 1);
+      window.open('https://damuword.kz/login/', "_self");
+   } else if (page == 'signup') {
+      sessionStorage.setItem('login', 2);
+      window.open('https://damuword.kz/login/', "_self");
+   }
+}
  
  auth.onAuthStateChanged((user) => {
     if (user) {
