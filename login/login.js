@@ -1,4 +1,4 @@
-import {analytics, auth, db} from '/menu.js';
+import {auth, db} from '/menu.js';
 import {startLoader, stopLoader} from '/menu.js';
 
 const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -13,8 +13,13 @@ const unsubscribe = auth.onAuthStateChanged((user) => {
    }
 });
 
-document.getElementById("showLoginBtn").addEventListener("click", displayLogin);
-document.getElementById("showSignupBtn").addEventListener("click", displaySignup);
+if (document.getElementById("showLoginBtn")){
+   document.getElementById("showLoginBtn").addEventListener("click", displayLogin);
+}
+if (document.getElementById("showSignupBtn")){
+   document.getElementById("showSignupBtn").addEventListener("click", displaySignup);
+}
+
 
 function displayLogin(){
    sessionStorage.setItem('login', 1);
