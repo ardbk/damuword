@@ -1,35 +1,40 @@
-import {analytics, auth, db, storage} from '/fb_links.js';
+import {analytics, auth, db} from '/menu.js';
+import {startLoader, stopLoader} from '/menu.js';
 
 const unsubscribe = auth.onAuthStateChanged((user) => {
    if (user) {
       window.open('https://damuword.kz/account', '_self');
    } else {
-      update(sessionStorage.getItem('login'));
+      if (sessionStorage.getItem('login') == 1){
+         displayLogin();
+      } else {
+         displaySignup();
+      }
    }
 });
 
-function update(x){
-   if (x == 1) {
-      sessionStorage.setItem('login', 1);
-      document.getElementById('reset').style.display = "none";
-      document.getElementById('signUp').style.display = "none";
-      document.getElementById('signIn').style.display = "flex";
-      document.getElementById('loginButton').style.borderRadius = "5px";
-      document.getElementById('loginButton').style.backgroundColor = "#f5d45d";
-      document.getElementById('signUpButton').style.backgroundColor = "#FFFFFF";
-   } else {
-      sessionStorage.setItem('login', 2);
-      document.getElementById('reset').style.display = "none";
-      document.getElementById('signUp').style.display = "flex";
-      document.getElementById('signIn').style.display = "none";
-      document.getElementById('loginButton').style.backgroundColor = "#FFFFFF";
-      document.getElementById('signUpButton').style.backgroundColor = "#f5d45d";
-   }
+document.getElementById("showLoginBtn").addEventListener("click", displayLogin);
+document.getElementById("showSignupBtn").addEventListener("click", displaySignup);
+
+function displayLogin(){
+   sessionStorage.setItem('login', 1);
+   document.getElementById('resetDiv').style.display = "none";
+   document.getElementById('signupDiv').style.display = "none";
+   document.getElementById('loginDiv').style.display = "flex";
+   document.getElementById('showLoginBtn').style.backgroundColor = "#f5d45d";
+   document.getElementById('showSignupBtn').style.backgroundColor = "#FFFFFF";
 }
 
-document.getElementById('login').addEventListener('click', login);
+function displaySignup(){
+   sessionStorage.setItem('login', 2);
+   document.getElementById('resetDiv').style.display = "none";
+   document.getElementById('signupDiv').style.display = "flex";
+   document.getElementById('loginDiv').style.display = "none";
+   document.getElementById('showLoginBtn').style.backgroundColor = "#FFFFFF";
+   document.getElementById('showSignupBtn').style.backgroundColor = "#f5d45d";
+}
 
-function login(){
+document.getElementById('loginBtn').addEventListener("click", function(){
    startLoader();
    unsubscribe();
    localStorage.clear();
@@ -44,11 +49,9 @@ function login(){
         stopLoader();
         alert(errorCode + ' -- ' + errorMessage + '\r\n Please, contact us if you have questions!');
     });
-}
+});
 
-document.getElementById('register').addEventListener('click', register);
-
-function register(){
+document.getElementById('register').addEventListener("click", function(){
    startLoader();
    unsubscribe();
    localStorage.clear();
@@ -73,36 +76,22 @@ function register(){
       stopLoader();
       alert(errorCode + ' -- ' + errorMessage + '\r\n Please, contact us if you have questions!');
    });
-}
+});
 
-function forgetPass(){
-   document.getElementById('reset').style.display = "flex";
-   document.getElementById('signIn').style.display = "none";
-   document.getElementById('loginButton').style.backgroundColor = "#FFFFFF";
-}
+document.getElementById("forgetPass").addEventListener("click", function(){
+   document.getElementById('resetDiv').style.display = "flex";
+   document.getElementById('loginDiv').style.display = "none";
+   document.getElementById('showLoginBtn').style.backgroundColor = "#FFFFFF";
+});
 
-document.getElementById('reset').addEventListener('click', reset);
-
-function reset(){
+document.getElementById('reset').addEventListener("click", function(){
    var email = document.getElementById('userEmailRes').value;
    auth.sendPasswordResetEmail(email).then(() => {
       alert("Password reset email was sent to your email!");
    }).catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      update(sessionStorage.getItem('login'));
+      displayLogin();
       alert(errorCode + ' -- ' + errorMessage + '\nPlease, contact us if you have questions!');
    });
-}
-
-function startLoader(){
-   document.getElementById('body').style.filter = 'blur(15px)';
-   document.getElementById('body').style.pointerEvents = "none";
-   document.getElementById('loader').classList.add("d-flex");
-}
-
-function stopLoader(){
-   document.getElementById('body').style.filter = 'blur(0px)';
-   document.getElementById('body').style.pointerEvents = "auto";
-   document.getElementById('loader').classList.remove("d-flex");
-} 
+});

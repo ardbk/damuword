@@ -1,4 +1,5 @@
-import {analytics, auth, db, storage} from '/fb_links.js';
+import {analytics, auth, db} from '/menu.js';
+import {startLoader, stopLoader } from "/menu.js";
 
 var partOfSpeeches = new Array(6);
 partOfSpeeches[0] = 'noun';
@@ -108,7 +109,7 @@ function setNameOfSet(idOfSet){
    });
 }
 
-function changeNameOfSet(){
+document.getElementById("setNameInput").addEventListener("change", function(){
    db.collection("damuword").doc(uid).get().then((doc) => {
       var arrIndex = new Array();
       var arrName = new Array();
@@ -124,7 +125,7 @@ function changeNameOfSet(){
             break;
          } else {
             i++;
-         }
+       }
       }
 
       db.collection("damuword").doc(uid).update({
@@ -132,7 +133,7 @@ function changeNameOfSet(){
          name: arrName
       });
    });
-}
+});
 
 function draftPage(){
    db.collection(pathToSet).add({
@@ -213,21 +214,20 @@ function addFieldOfWord(idOfWord){
     var htmlOfCheckBox = '<div class="checkbox-field d-flex justify-content-sm-between flex-wrap justify-content-evenly">';
     for(var i=0; i<partOfSpeeches.length; i++){
         var newIdOfBox = idOfWord+'_'+partOfSpeeches[i];
-        htmlOfCheckBox += '<span><input type="checkbox" class="checkBox" id="'+newIdOfBox+'" onclick="addOrDeletePartOfSpeech(event)"><label for="'+newIdOfBox+'">'+partOfSpeeches[i]+'</label></span>';
+        htmlOfCheckBox += '<span><input type="checkbox" class="checkBox" id="'+newIdOfBox+'" name="addOrDeletePartOfSpeech"><label for="'+newIdOfBox+'">'+partOfSpeeches[i]+'</label></span>';
     }
     htmlOfCheckBox += '</div>';
 
     var orderOfWord = parseInt(sessionStorage.getItem("orderOfWord")) + 1;
     sessionStorage.setItem("orderOfWord", orderOfWord);
 
-    document.getElementById('start').insertAdjacentHTML('beforeend', '<div class=" container-fluid d-flex flex-column align-items-center word-div" id="'+newIdOfField+'"><div class="word-disc container-fluid"><span name="order">'+orderOfWord+'. Enter the word: </span><span class="input-mobile"><input type="text" id="'+idOfWord+'" name="words" oninput="saveWord(event)" class="wordName" maxlength="15"><button class="c-button delete-word delete-word-mobile" onclick="deleteWord('+newIdToDelete+')"></button></span><span title="Number of lines used in the card" id="'+newIdOfCounter+'" class="counter" style="color: black;">1/16 lines</span><button class="c-button delete-word delete-word-desktop mx-1" onclick="deleteWord('+newIdToDelete+')"></button></div>'+htmlOfCheckBox+'</div>');
+    document.getElementById('start').insertAdjacentHTML('beforeend', '<div class=" container-fluid d-flex flex-column align-items-center word-div" id="'+newIdOfField+'"><div class="word-disc container-fluid"><span name="order">'+orderOfWord+'. Enter the word: </span><span class="input-mobile"><input type="text" id="'+idOfWord+'" name="words" class="wordName" maxlength="15"><button class="c-button delete-word delete-word-mobile" id="'+newIdToDelete+'" name="deleteWordBtn"></button></span><span title="Number of lines used in the card" id="'+newIdOfCounter+'" class="counter" style="color: black;">1/16 lines</span><button class="c-button delete-word delete-word-desktop mx-1"  id="'+newIdToDelete+'" name="deleteWordBtn"></button></div>'+htmlOfCheckBox+'</div>');
 }
 
 function addFieldOfPartOfSpeech(idOfWord, partOfSpeech){
     var idOfFieldAppear = idOfWord+'_field';
     var newIdOfField = idOfWord+'_'+partOfSpeech+'_field';
-    var newDataToAddDef = "'"+idOfWord+"', '"+partOfSpeech+"'";
-    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp" id="'+newIdOfField+'"><div class="def-span"><span style="margin: 0 5px; font-size: 16px;">'+partOfSpeech+'</span><button class="c-button add-def-btn" title="Add new definition and example" onclick="addNewDefinition('+newDataToAddDef+')"></button></div></div>');
+    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp" id="'+newIdOfField+'"><div class="def-span"><span style="margin: 0 5px; font-size: 16px;">'+partOfSpeech+'</span><button class="c-button add-def-btn" title="Add new definition and example" id="'+idOfWord+'" data-partOfSpeech="'+partOfSpeech+'" name="addNewDefinition"></button></div></div>');
 
     setNumberOfLines(idOfWord);
 }
@@ -235,33 +235,38 @@ function addFieldOfPartOfSpeech(idOfWord, partOfSpeech){
 function addFieldOfDefinition(idOfWord, partOfSpeech, idOfDef){
     var idOfFieldAppear = idOfWord+'_'+partOfSpeech+'_field';
     var newIdOfField = idOfWord+'_'+partOfSpeech+'_'+idOfDef+'_field';
-    var newDataToDelete = "'"+idOfWord+"', '"+partOfSpeech+"', '"+idOfDef+"'";
 
     var newIdOfDef = idOfWord+'/'+partOfSpeech+'/'+idOfDef+'_def';
     var newIdOfExp = idOfWord+'/'+partOfSpeech+'/'+idOfDef+'_exp';
 
-    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp-part d-flex align-items-center justify-content-center" id="'+newIdOfField+'"><textarea placeholder="definition" id="'+newIdOfDef+'" oninput="saveTextAreaDef(event)"></textarea><textarea placeholder="example" id="'+newIdOfExp+'"oninput="saveTextAreaExp(event)"></textarea><button  title="Delete definition and example" class="c-button delete-def-btn" onclick="deleteDefinition('+newDataToDelete+')"></button></div>');
+    document.getElementById(idOfFieldAppear).insertAdjacentHTML('beforeend', '<div class="def-exp-part d-flex align-items-center justify-content-center" id="'+newIdOfField+'"><textarea placeholder="definition" id="'+newIdOfDef+'" name="saveTextAreaDef"></textarea><textarea placeholder="example" id="'+newIdOfExp+'" name="saveTextAreaExp"></textarea><button  title="Delete definition and example" class="c-button delete-def-btn" id="'+idOfDef+'" data-partOfSpeech="'+partOfSpeech+'" data-idOfWord="'+idOfWord+'" name="deleteDefinition"></button></div>');
 }
 
-function addNewWord(){
+document.getElementById("addNewWord").addEventListener("click", function(){
    db.collection(pathToSet).add({
       word: ""
    }).then((doc) => {
       addFieldOfWord(doc.id);
    });
+});
+
+for (button of document.getElementsByName("addOrDeletePartOfSpeech")){
+   button.addEventListener("click", function(event){
+      var id = event.target.id;
+      var idOfWord = id.slice(0, 20);
+      var partOfSpeech = id.slice(21, id.length);
+
+      if(event.target.checked == true){
+         addFieldOfPartOfSpeech(idOfWord, partOfSpeech);
+         addNewDefinition(idOfWord, partOfSpeech);
+      } else {
+         deletePartOfSpeech(idOfWord, partOfSpeech);
+      }
+   });
 }
 
-function addOrDeletePartOfSpeech(event){
-   var id = event.target.id;
-   var idOfWord = id.slice(0, 20);
-   var partOfSpeech = id.slice(21, id.length);
-
-   if(event.target.checked == true){
-      addFieldOfPartOfSpeech(idOfWord, partOfSpeech);
-      addNewDefinition(idOfWord, partOfSpeech);
-   } else {
-      deletePartOfSpeech(idOfWord, partOfSpeech);
-   }
+for (button of document.getElementsByName("addOrDeletePartOfSpeech")){
+   button.addEventListener("click", addNewDefinition(button.target.id, button.target.dataset.partOfSpeech));
 }
 
 function addNewDefinition(idOfWord, partOfSpeech){
@@ -275,33 +280,37 @@ function addNewDefinition(idOfWord, partOfSpeech){
 }
 
 
-function deleteWord(idOfWord){
-   for (var i = 0; i < partOfSpeeches.length; i++) {
-      var idOfBox = idOfWord+"_"+partOfSpeeches[i];
-      if(document.getElementById(idOfBox).checked == true){
-         db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeeches[i]).get().then((collection) => {
-            collection.docs.forEach(doc => {
-               doc.ref.delete();
+for (button of document.getElementsByName("deleteWordBtn")){
+   button.addEventListener("click", function(event){
+      var idOfWord = event.target.id;
+      for (var i = 0; i < partOfSpeeches.length; i++) {
+         var idOfBox = idOfWord+"_"+partOfSpeeches[i];
+         if(document.getElementById(idOfBox).checked == true){
+            db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeeches[i]).get().then((collection) => {
+               collection.docs.forEach(doc => {
+                  doc.ref.delete();
+               });
             });
-         });
+         }
       }
-   }
-
-   db.collection(pathToSet).doc(idOfWord).delete();
-   document.getElementById(idOfWord+'_field').remove();
-
-   var orderOfWord = parseInt(sessionStorage.getItem("orderOfWord")) - 1;
-   sessionStorage.setItem("orderOfWord", orderOfWord);
-
-   var orders = document.getElementsByName('order');
-   var i = 0;
-   while(i+1 == parseInt(orders[i].innerHTML.slice(0, 1))) {
-      i++;
-   }
-   for (var j = i; j < orderOfWord; j++) {
-      orders[j].innerHTML = (j+1) + ". Enter the word: ";
-   }
+   
+      db.collection(pathToSet).doc(idOfWord).delete();
+      document.getElementById(idOfWord+'_field').remove();
+   
+      var orderOfWord = parseInt(sessionStorage.getItem("orderOfWord")) - 1;
+      sessionStorage.setItem("orderOfWord", orderOfWord);
+   
+      var orders = document.getElementsByName('order');
+      var i = 0;
+      while(i+1 == parseInt(orders[i].innerHTML.slice(0, 1))) {
+         i++;
+      }
+      for (var j = i; j < orderOfWord; j++) {
+         orders[j].innerHTML = (j+1) + ". Enter the word: ";
+      }
+   });
 }
+
 
 function deletePartOfSpeech(idOfWord, partOfSpeech){
        db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeech).get().then(collection => {
@@ -313,48 +322,57 @@ function deletePartOfSpeech(idOfWord, partOfSpeech){
        document.getElementById(idOfWord+'_'+partOfSpeech+'_field').remove();
 }
 
-function deleteDefinition(idOfWord, partOfSpeech, idOfDef){
-   db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeech).doc(idOfDef).delete().then(() => {
-      db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeech).get().then((collection) => {
-         if(collection.size == 0){
-            var idOfCheckBox = idOfWord+'_'+partOfSpeech;
-            document.getElementById(idOfCheckBox).checked = false;
-            deletePartOfSpeech(idOfWord, partOfSpeech);
-         }
-         setNumberOfLines(idOfWord);
+for (button of document.getElementsByName("deleteDefinition")){
+   button.addEventListener("click", function(event){
+      var idOfWord = event.target.dataset.idOfWord;
+      var partOfSpeech = event.target.dataset.partOfSpeech; 
+      var idOfDef = event.target.id;
+      db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeech).doc(idOfDef).delete().then(() => {
+         db.collection(pathToSet+"/"+idOfWord+"/"+partOfSpeech).get().then((collection) => {
+            if(collection.size == 0){
+               var idOfCheckBox = idOfWord+'_'+partOfSpeech;
+               document.getElementById(idOfCheckBox).checked = false;
+               deletePartOfSpeech(idOfWord, partOfSpeech);
+            }
+            setNumberOfLines(idOfWord);
+         });
+      });
+
+      document.getElementById(idOfWord+'_'+partOfSpeech+'_'+idOfDef+'_field').remove();
+   });
+}
+
+for (button of document.getElementsByName("words")){
+   button.addEventListener("change", function(event){
+      db.collection(pathToSet).doc(event.target.id).update({
+         word: event.target.value
       });
    });
-
-   document.getElementById(idOfWord+'_'+partOfSpeech+'_'+idOfDef+'_field').remove();
 }
 
-
-function saveWord(event){
-   db.collection(pathToSet).doc(event.target.id).update({
-      word: event.target.value
+for (button of document.getElementsByName("saveTextAreaDef")){
+   button.addEventListener("change", function(event){
+      var id = event.target.id;
+      id = id.slice(0, id.length-4);
+      db.collection(pathToSet).doc(id).update({
+         def: event.target.value
+      }).then(() => {
+         setNumberOfLines(id.slice(0, 20));
+      });
    });
 }
 
-function saveTextAreaDef(event){
-   var id = event.target.id;
-   id = id.slice(0, id.length-4);
-   db.collection(pathToSet).doc(id).update({
-      def: event.target.value
-   }).then(() => {
-      setNumberOfLines(id.slice(0, 20));
-   });
-}
-
-function saveTextAreaExp(event){
-   var id = event.target.id;
+for (button of document.getElementsByName("saveTextAreaExp")){
+   button.addEventListener("change", function(event){
+      var id = event.target.id;
    id = id.slice(0, id.length-4);
    db.collection(pathToSet).doc(id).update({
       exp: event.target.value
    }).then(() => {
       setNumberOfLines(id.slice(0, 20));
    });
+   });
 }
-
 
 function setNumberOfLines(idOfWord){
     var numberOfLines = 0;
@@ -425,8 +443,7 @@ function findBreak(text, type, size){
     return indexOfBreak;
 }
 
-
-function deleteSet(){
+document.getElementById("deleteSet").addEventListener("click", function(){
    if(confirm('Do you really want to delete everything?')){
       startLoader();
       if (uid != "guests"){
@@ -499,10 +516,9 @@ function deleteSet(){
       }
       
    }
-}
+});
 
-
-function download(){
+document.getElementById("download").addEventListener("click", function(){
     var filename = document.getElementById('setNameInput').value + '.txt';
     var text = convertToText();
 
@@ -517,7 +533,7 @@ function download(){
 
     document.body.removeChild(element);
 
-}
+});
 
 function convertToText(){
    var space = '%-%';

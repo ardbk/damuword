@@ -1,13 +1,13 @@
 import {analytics, auth, db, storage} from '/fb_links.js';
 
-function print(){
+document.getElementById("print").addEventListener("click", function(){
     if(sessionStorage.getItem('checkCounter') == "red"){
            alert('Please check every word, the number of characters is too big');
     }
     else {
       downloadPDF();
     }
-}
+});
 
 function downloadPDF(){
    pdf = new jsPDF();

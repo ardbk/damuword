@@ -39,35 +39,34 @@
                 <span class="header-heading-1">.</span>
             </div>
             <div class="signInUp">
-                <button class="button" id="loginButton" onclick="update(1)">Login</button>
+                <button class="button" id="showLoginBtn">Login</button>
                 <img src="images/line.png" class="buttonLine" />
-                <button class="button" id="signUpButton" onclick="update(2)">Sign Up</button>
+                <button class="button" id="showSignupBtn">Sign Up</button>
             </div>
-            <div class="accountInfo" id="signIn">
+            <div class="accountInfo" id="loginDiv">
                 <span class="accountText" autocomplete="email">Email address </span>
                 <input type="email" placeholder="Enter email" id="userEmailLog" />
                 <span class="accountText" autocomplete="current-password"> Password </span>
                 <input type="password" placeholder="Enter password" id="userPassLog" />
-                <a class="forgotPass" onclick="forgetPass()"> Forgot your password? </a>
-                <button type="submit" class="signButton" id="login">Login</button>
+                <a class="forgotPass" id="forgetPass"> Forgot your password? </a>
+                <button type="submit" class="signButton" id="loginBtn">Login</button>
             </div>
-            <div class="accountInfo2" id="signUp">
+            <div class="accountInfo2" id="signupDiv">
                 <span class="accountText" autocomplete="email">Email address </span>
                 <input type="email" placeholder="Enter email" id="userEmailReg" />
                 <span class="accountText" autocomplete="username">Username </span>
                 <input type="text" maxlength="10" placeholder="Enter username" id="userNameReg" />
                 <span class="accountText" autocomplete="new-password"> Password </span>
                 <input type="password" placeholder="Enter password" id="userPassReg" />
-                <button type="submit" class="signButton" id="register">Register</button>
+                <button type="submit" class="signButton" id="signupBtn">Register</button>
             </div>
-            <div class="accountInfo3" id="reset">
+            <div class="accountInfo3" id="resetDiv">
                 <span class="accountText" autocomplete="email">Email address </span>
                 <input type="email" placeholder="Enter email" id="userEmailRes" />
-                <button type="submit" class="signButton" id="reset">Confirm</button>
+                <button type="submit" class="signButton" id="resetBtn">Confirm</button>
             </div>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script type="module" src="/fb_links.js"></script>
     <script type="module" src="login.js"></script>
 </html>
