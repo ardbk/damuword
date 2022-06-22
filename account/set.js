@@ -1,5 +1,3 @@
-import {analytics, auth, db, storage} from '/fb_links.js';
-
 function createSet(){
    localStorage.clear();
    window.open('https://damuword.kz/write/', '_self');

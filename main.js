@@ -1,6 +1,5 @@
-import {analytics, auth, db, storage} from '/menu.js';
-import {startLoader, stopLoader, logEvent} from '/menu.js';;
-
+var storage = firebase.storage();
+var db = firebase.firestore();
 var uid;
 
 var enter = '$-$';
@@ -8,8 +7,7 @@ var space = '%-%';
 var numberOfWords;
 var pathToSet;
 
-document.getElementById("createSetBtn").addEventListener("click", function(){
-   logEvent(analytics, "creaeteSet",);
+function createSet() {
    auth.onAuthStateChanged((user) => {
        if (user) {
            localStorage.clear();
@@ -18,7 +16,7 @@ document.getElementById("createSetBtn").addEventListener("click", function(){
            window.open("https://damuword.kz/write/", "_self");
        }
    });
-});
+}
 
 createPath();
 
@@ -32,7 +30,7 @@ function createPath(){
    });
 }
 
-document.getElementById("uploadBtn").addEventListener("change", function(event){
+var readFile = function(event){
    var file = event.target.files[0];
    var reader = new FileReader();
    reader.readAsText(file);
@@ -43,7 +41,7 @@ document.getElementById("uploadBtn").addEventListener("change", function(event){
       var text = reader.result;
       readSet(text, nameOfSet);
    }
-});
+}
 
 function openReadySet(name){
    startLoader();

@@ -47,9 +47,9 @@
                             <a class="nav-link" href="https://damuword.kz/faq/">FAQ</a>
                         </li>
                     </ul>
-                    <a class="menu-elements menu-account w-inline-block" id="account"></a>
-                    <button class="btn btn-warning bordered me-2" type="submit" id='login' style="background-color: #f3d250;">Login</button>
-                    <button class="btn btn-warning bordered" type="submit" id='signup' style="background-color: #f3d250;" >Sign Up</button>
+                    <a class="menu-elements menu-account w-inline-block" id="account" onclick="openPage('account')"></a>
+                    <button class="btn btn-warning bordered me-2" type="submit" id='login' onclick="openPage('login')" style="background-color: #f3d250;">Login</button>
+                    <button class="btn btn-warning bordered" type="submit" id='signup' onclick="openPage('signup')" style="background-color: #f3d250;" >Sign Up</button>
                 </div>
             </div>
         </nav>
@@ -94,11 +94,15 @@
     </div>
 </div>
     </div>
-    <script type="module" src="/menu.js"></script>
-    <script type="module" src="write.js"></script>
-    <script type="text/JavaScript" src="print.js"></script>
-    <script type="text/JavaScript" src="jspdf.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script type="text/JavaScript" src="/menu.js"></script>
     <script type="text/JavaScript" src="letters.js"></script>
+    <script type="text/JavaScript" src="write.js"></script>
+    <script type="text/JavaScript" src="jspdf.min.js"></script>
+    <script type="text/JavaScript" src="print.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -55,6 +55,8 @@ function getWidth(c, type, fontSize){
     return width*fontSize*25.4/72;
 }
 
+
+
 push(" ", 0.250, 0.250, 0.250, 0.250);
 push("'", 0.180, 0.278, 0.214, 0.278);
 push('!', 0.333, 0.333, 0.333, 0.389);
