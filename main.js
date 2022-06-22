@@ -1,4 +1,5 @@
-import {analytics, auth, db, storage} from '/fb_links.js';
+import {analytics, auth, db, storage} from '/menu.js';
+import {startLoader, stopLoader} from '/menu.js';;
 
 var uid;
 
@@ -7,7 +8,7 @@ var space = '%-%';
 var numberOfWords;
 var pathToSet;
 
-function createSet() {
+document.getElementById("createNowBtn").addEventListener("click", function(){
    auth.onAuthStateChanged((user) => {
        if (user) {
            localStorage.clear();
@@ -16,7 +17,7 @@ function createSet() {
            window.open("https://damuword.kz/write/", "_self");
        }
    });
-}
+});
 
 createPath();
 
@@ -30,7 +31,7 @@ function createPath(){
    });
 }
 
-var readFile = function(event){
+document.getElementById("uploadBtn").addEventListener("change", function(event){
    var file = event.target.files[0];
    var reader = new FileReader();
    reader.readAsText(file);
@@ -41,7 +42,7 @@ var readFile = function(event){
       var text = reader.result;
       readSet(text, nameOfSet);
    }
-}
+});
 
 function openReadySet(name){
    startLoader();
