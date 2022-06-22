@@ -7,13 +7,8 @@
     <meta name="description" content="Create your own flashcards and print them for free!" />
     <meta name="keywords" content="flashcards, flash-cards, flash cards, printable flashcards, online flashcards" />
     <title>Create your own dictionary - Damuword</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/other/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/other/favicon-16x16.png">
-    <link rel="manifest" href="/other/site.webmanifest">
-    <link rel="mask-icon" href="/other/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/other/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/other/favicon.ico" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../menu.css" rel="stylesheet" type="text/css" />
     <link href="../footer.css" rel="stylesheet" type="text/css" />
@@ -52,28 +47,28 @@
                             <a class="nav-link" href="https://damuword.kz/faq/">FAQ</a>
                         </li>
                     </ul>
-                    <a class="menu-elements menu-account w-inline-block" id="accountBtn"></a>
-                    <button class="btn btn-warning bordered me-2" type="submit" id='loginBtn' style="background-color: #f3d250;">Login</button>
-                    <button class="btn btn-warning bordered" type="submit" id='signupBtn' style="background-color: #f3d250;" >Sign Up</button>
+                    <a class="menu-elements menu-account w-inline-block" id="account"></a>
+                    <button class="btn btn-warning bordered me-2" type="submit" id='login' style="background-color: #f3d250;">Login</button>
+                    <button class="btn btn-warning bordered" type="submit" id='signup' style="background-color: #f3d250;" >Sign Up</button>
                 </div>
             </div>
         </nav>
     <div class="d-flex flex-column align-items-center middle">
         <div class="set-div" id="setName">
             <label for="setNameInput" style="font-weight: bold;"> Set Name </label>
-            <input id="setNameInput"/>
+            <input id="setNameInput" onchange="changeNameOfSet()" />
         </div>
         <div id="start" class="d-flex flex-column justify-content-center align-items-center">
         </div>
-        <div class="container-fluid word-div d-flex flex-row justify-content-center align-items-center new-word" id="addNewWord">
+        <div class="container-fluid word-div d-flex flex-row justify-content-center align-items-center new-word" onclick="addNewWord()">
             <span> Add new word </span>
         </div>
         <div class="container-fluid word-div d-flex flex-rown justify-content-center align-items-center" style="width:auto;">
-                    <button title="Delete all words" class="btn" type="button" id="deleteSet">Delete</button>
+                    <button title="Delete all words" class="btn" type="button" onclick="deleteSet()">Delete</button>
                     <img src="images/line.png" class="buttonLine" />
-                    <button title="Download the set of words" class="btn" type="button" id="download">Download</button>
+                    <button title="Download the set of words" class="btn" type="button" onclick="download()">Download</button>
                     <img src="images/line.png" class="buttonLine" />
-                    <button title="Print the set of words" class="btn" type="button" id="print">Print</button>
+                    <button title="Print the set of words" class="btn" type="button" onclick="print()">Print</button>
         </div>
     </div>
     <div class="footer">
@@ -101,9 +96,9 @@
     </div>
     <script type="module" src="/menu.js"></script>
     <script type="module" src="write.js"></script>
-    <script type="module" src="print.js"></script>
-    <script type="text/javascript" src="letters.js"></script>
-    <script type="text/javascript" src="jspdf.min.js"></script>
+    <script type="text/JavaScript" src="print.js"></script>
+    <script type="text/JavaScript" src="jspdf.min.js"></script>
+    <script type="text/JavaScript" src="letters.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

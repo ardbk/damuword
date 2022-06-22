@@ -1,5 +1,20 @@
-import {auth, db} from '/menu.js';
-import {startLoader, stopLoader} from '/menu.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDL_P3v2GI-T1_yDC5XF8ggakSZklRfZO0",
+    authDomain: "damuword-fdb1b.firebaseapp.com",
+    projectId: "damuword-fdb1b",
+    storageBucket: "damuword-fdb1b.appspot.com",
+    messagingSenderId: "1045885837483",
+    appId: "1:1045885837483:web:61a1eca3e227c4ec4e17ee",
+    measurementId: "G-H9EJWKL9H4"
+};
+
+var app = initializeApp(firebaseConfig);
+var auth = getAuth(app);
+var db = getFirestore(app);
 
 const unsubscribe = auth.onAuthStateChanged((user) => {
    if (user) {
@@ -12,6 +27,18 @@ const unsubscribe = auth.onAuthStateChanged((user) => {
       }
    }
 });
+
+function startLoader(){
+   document.getElementById('body').style.filter = 'blur(15px)';
+   document.getElementById('body').style.pointerEvents = "none";
+   document.getElementById('loader').classList.add("d-flex");
+}
+ 
+function stopLoader(){
+   document.getElementById('body').style.filter = 'blur(0px)';
+   document.getElementById('body').style.pointerEvents = "auto";
+   document.getElementById('loader').classList.remove("d-flex");
+}
 
 
 document.getElementById("showLoginBtn").addEventListener("click", displayLogin);
