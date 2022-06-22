@@ -1,5 +1,5 @@
 import {analytics, auth, db, storage} from '/menu.js';
-import {startLoader, stopLoader} from '/menu.js';;
+import {startLoader, stopLoader, logEvent} from '/menu.js';;
 
 var uid;
 
@@ -8,7 +8,8 @@ var space = '%-%';
 var numberOfWords;
 var pathToSet;
 
-document.getElementById("createNowBtn").addEventListener("click", function(){
+document.getElementById("createSetBtn").addEventListener("click", function(){
+   logEvent(analytics, "creaeteSet",);
    auth.onAuthStateChanged((user) => {
        if (user) {
            localStorage.clear();

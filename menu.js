@@ -20,18 +20,25 @@ var auth = getAuth(app);
 var db = getFirestore(app);
 var storage = getStorage(app);
 
-logEvent(analytics, 'notification_received');
-
 document.getElementById("accountBtn").addEventListener("click", function(){
+   logEvent(analytics, "menuBtn", {
+      method: "account"
+   });
    window.open('https://damuword.kz/account/', "_self");
 });
 
 document.getElementById("loginBtn").addEventListener("click", function(){
+   logEvent(analytics, "menuBtn", {
+      method: "login"
+   });
    sessionStorage.setItem('login', 1);
    window.open('https://damuword.kz/login/', "_self");
 });
 
 document.getElementById("signupBtn").addEventListener("click", function(){
+   logEvent(analytics, "menuBtn", {
+      method: "signup"
+   });
    sessionStorage.setItem('login', 2);
    window.open('https://damuword.kz/login/', "_self");
 });
@@ -61,4 +68,4 @@ function stopLoader(){
 }
 
 export {analytics, auth, db, storage};
-export {startLoader, stopLoader};
+export {startLoader, stopLoader, logEvent};
