@@ -38,13 +38,13 @@ document.getElementById("signupBtn").addEventListener("click", function(){
  
 auth.onAuthStateChanged((user) => {
    if (user) {
-      document.getElementById("signup").style.display = "none";
-      document.getElementById("login").style.display = "none";
-      document.getElementById("account").style.display = "inline-block";
+      document.getElementById("signupBtn").style.display = "none";
+      document.getElementById("loginBtn").style.display = "none";
+      document.getElementById("accountBtn").style.display = "inline-block";
    } else {
-      document.getElementById("signup").style.display = "inline-block";
-      document.getElementById("login").style.display = "inline-block";
-      document.getElementById("account").style.display = "none";
+      document.getElementById("signupBtn").style.display = "inline-block";
+      document.getElementById("loginBtn").style.display = "inline-block";
+      document.getElementById("accountBtn").style.display = "none";
    }
 });
  
