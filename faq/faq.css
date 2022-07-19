@@ -2,6 +2,21 @@ body {
     font-size: 16px;
     font-family: Poppins, sans-serif;
 }
+.faq-header {
+    height: 400px;
+    width: 100%;
+    background-image:url("../images/fifth_background.png");
+}
+.faq-title {
+    font-family: Poppins, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.faq-under {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
 .accordion-button {
     font-size: 18px;
     font-weight: 600;
