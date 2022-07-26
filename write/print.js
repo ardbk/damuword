@@ -49,13 +49,13 @@ function setWord(page, order, word){
 
    var y = parseInt(order/3);
    var x = order - 3*y;
-   y = y*72+38 + getWidth(word, 'normal', 20)/2;
-   x = x*67+30;
+   y = y*72+40 - getWidth(word, 'normal', 20)/2;
+   x = x*67+41;
 
    pdf.setFontType('normal');
    pdf.setTextColor(0,0,0);
    pdf.setFontSize(20);
-   pdf.text(word, x, y, 90);
+   pdf.text(word, x, y, -90);
 }
 
 function setPOSFront(page, order, partOfSpeech){
@@ -63,13 +63,13 @@ function setPOSFront(page, order, partOfSpeech){
 
    var y = parseInt(order/3);
    var x = order - 3*y;
-   y = y*72 + 38 + getWidth(partOfSpeech, 'normal', 10)/2;
-   x = x*67 + 50;
+   y = y*72 + 40 - getWidth(partOfSpeech, 'normal', 10)/2;
+   x = x*67 + 17;
 
    pdf.setFontType('normal');
    pdf.setTextColor(0,0,0);
    pdf.setFontSize(10);
-   pdf.text(partOfSpeech, x, y, 90);
+   pdf.text(partOfSpeech, x, y, -90);
 }
 
 function setPOSBack(page, order, partOfSpeech, line){

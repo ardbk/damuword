@@ -10,9 +10,15 @@ var pathToSet;
 function createSet() {
    auth.onAuthStateChanged((user) => {
        if (user) {
+         analytics.logEvent("createSet", {
+            method: "registered"
+         });
            localStorage.clear();
            window.open("https://damuword.kz/write/", "_self");
        } else {
+         analytics.logEvent("createSet", {
+            method: "guests"
+         });
            window.open("https://damuword.kz/write/", "_self");
        }
    });
@@ -44,6 +50,9 @@ var readFile = function(event){
 }
 
 function openReadySet(name){
+   analytics.logEvent("openReadySet", {
+      method: name
+   });
    startLoader();
    storage.ref('sets/'+name+'.txt').getDownloadURL().then(url => {
        fetch(url).then(function(response) {
