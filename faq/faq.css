@@ -32,9 +32,9 @@ body {
 .accordion-button:focus {
     box-shadow: none;
 }
-.middle {
+/* .middle {
     min-height: calc(100vh - 300px);
-}
+} */
 .accordion {
     width: 80%;
     padding: 20px 0;
