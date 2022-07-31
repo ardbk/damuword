@@ -199,6 +199,9 @@ textarea {
 .delete-word-mobile {
     display: none;
 }
+.footer {
+    background-color: white;
+}
 @media screen and (max-width: 670px) {
     .word-div {
         width: 560px !important;
