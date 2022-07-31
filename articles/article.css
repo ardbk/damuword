@@ -5,6 +5,18 @@
     height: 400px;
     background-image:url("../images/fifth_background.png");
 }
+
+a:link { text-decoration: none; }
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover { text-decoration: none; }
+
+a:active { text-decoration: none; }
+
 .article-title {
     font-family: Poppins, sans-serif;
     font-size: 40px;
